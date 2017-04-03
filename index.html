@@ -15,10 +15,10 @@
 
 <div data-role="page" id="home">
     <div data-role="header">
-        <h1>Log In</h1>
     </div><!-- /header -->
 
     <div data-role="content">
+        <img src="logo.png"  style="width:286px;height:286px;" align="middle">
         <h1>Log In</h1>
 
         <form action="/action_page.php">
@@ -37,12 +37,11 @@
 
 <div data-role="page" id="signup">
     <div data-role="header">
-        <h1>Sign Up</h1>
     </div><!-- /header -->
 
     <div data-role="content">
-        <h1>Sign Up</h1>
-
+        <h1>Sign Up</h1>   
+        <img src="logo.png"  style="width:286px;height:286px;" align="middle">
         <form action="/action_page.php">
           Username:<br>
           <input type="text" name="username"><br>
@@ -61,11 +60,12 @@
 
 <div data-role="page" id="landing">
     <div data-role="header">
-        <h1>CS 179 Home</h1>
+
     </div><!-- /header -->
 
     <div data-role="content">
-        <h1>CS 179:  Design of Useful and Usable Interactive Systems, Spring 2017</h1>
+        <h1>Turn Off</h1>
+        <img src="logo.png"  style="width:286px;height:286px;" align="middle">
 
         <!-- TODO 1: make these links appear as mobile buttons using the ui-btn class -->
         <a href="#guardian" class="ui-btn">Add a Guardian</a>
@@ -204,28 +204,6 @@
     </div>   
 </div>
 
-<div data-role="page" id="due_date">
-    <div data-role="header">
-        <h1>Change the end date of your habit</h1>
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
-    </div><!-- /header -->
-    <div data-role="content">
-        
-         <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php">
-                <label for="date">Habit End Date</label>
-                <input type="date" name="date" id="date" value=""  />   
-            </form>
-            <p> Note: You can only extend your end date. Any changes you make are final. </p>
-        </div>
-        
-        <div data-role="main" class="ui-content">
-            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Send request</a>    
-        </div>
-
-    </div>   
-</div>
-
 
 <div data-role="page" id="target">
     <div data-role="header">
@@ -248,6 +226,27 @@
         </div>
 
     </div>   
+</div>
+
+<div data-role="page" id="due_date">
+    <div data-role="header">
+        <h1>Change the end date of your habit</h1>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+    </div><!-- /header -->
+    <div data-role="content">
+        
+         <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="date">Habit End Date</label>
+                <input type="date" name="date" id="date" value=""  />   
+            </form>
+            <p> Note: You can only extend your end date. Any changes you make are final. </p>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Send request</a>    
+        </div>
+     </div>
 </div>
 
 <div data-role="page" id="help">
@@ -276,76 +275,6 @@
     </div><!-- /footer -->
 </div>
 
-<div data-role="page" id="team">
-
-    <div data-role="header">
-        <h1>CS 179 Staff</h1>
-        <!-- TODO 4b: add a navigation bar to this page like the one on the Home page. Make sure that the "team" button is the active one-->
-        <div data-role="navbar">
-            <ul>
-                <li><a href="#home" >Home</a></li>
-                <li><a href="#team" class="ui-btn-active ui-state-persist">Team</a></li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div data-role="content">
-        <h3>CS 179 staff:</h3>
-        <form class= "ui-filterable">
-            <input id="filterBasic-input" data-type = "search">
-        </form>
-        <!--TODO 2a: make the list look nicer by defining it as a listview -->
-        <!--TODO 3: make the list filterable using a data-filter -->
-        <ul  data-inset="true" data-role="listview" data-input="#filterBasic-input">
-            <li><a href="#ofra" data-transition="flow">Ofra</a></li>
-            <li><a href="">Evan</a></li>
-            <li><a href="">Joan</a></li>
-            <li><a href="">Amy</a></li>
-            <li><a href="#zeerak">Zeerak</a></li>
-        </ul>
-    </div><!-- /content -->
-
-    <div data-role="footer">
-        <h4>visit us at <a href="http://cs179.org" target="_blank">cs179.org</a></h4>
-    </div><!-- /footer -->
-</div><!-- /page -->
-
-<div data-role="page" id="ofra">
-    <div data-role="header">
-        <!-- TODO 5: add a back button to the header; include the back icon on your back button -->
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
-        <h1>Ofra</h1>
-    </div>
-    <div data-role="content">
-        <h3>Ofra is the instructor for CS 179.</h3>
-        <img src="pics/t3.jpg" alt="Ofra" width="150px">
-    </div>
-
-    <div data-role="footer">
-        <h4>visit us at <a href="http://cs179.org" target="_blank">cs179.org</a></h4>
-    </div><!-- /footer -->
-</div>
-
-<!--TODO 6: add a page for your studio TF, similar to the "ofra" page, and make the list in the "team" page link to it from the appropriate button -->
-
-
-<div data-role="page" id="zeerak">
-    <div data-role="header">
-        <!-- TODO 5: add a back button to the header; include the back icon on your back button -->
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
-        <h1>Ofra</h1>
-    </div>
-    <div data-role="content">
-        <h3>Zeerak is the instructor for CS 179.</h3>
-        <img src="pics/t3.jpg" alt="Zeerak" width="150px">
-    </div>
-
-    <div data-role="footer">
-        <h4>visit us at <a href="http://cs179.org" target="_blank">cs179.org</a></h4>
-    </div><!-- /footer -->
-</div>
-<!--TODO 7: add a jQuery mobile page transition to the link from the "team" page to your TF page -->
 
 </body>
 </html>
