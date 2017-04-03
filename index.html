@@ -100,7 +100,7 @@
 
                 </a>
             </li>
-            <li><a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left" data-transition="flow">Due Date: <p>April 4th, 2018</p> <p>50 days left</p> </a></li>
+            <li><a href="#due_date" class="ui-btn ui-icon-edit ui-btn-icon-left" data-transition="flow">Due Date: <p>April 4th, 2018</p> <p>50 days left</p> </a></li>
             <li><a href="#" class="ui-btn ui-icon-user ui-btn-icon-left" data-transition="flow">Guardian: <p>Yoav Shaked</p></a></li>
             <li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left" data-transition="flow">Charity:<p>National lung cancer association</p></a></li>
         </ul>
@@ -195,6 +195,28 @@
                 <label for="date">Note</label>
                 <input type="text" name="fname" id="fname">
             </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Send request</a>    
+        </div>
+
+    </div>   
+</div>
+
+<div data-role="page" id="due_date">
+    <div data-role="header">
+        <h1>Change the end date of your habit</h1>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+    </div><!-- /header -->
+    <div data-role="content">
+        
+         <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="date">Habit End Date</label>
+                <input type="date" name="date" id="date" value=""  />   
+            </form>
+            <p> Note: You can only extend your end date. Any changes you make are final. </p>
         </div>
         
         <div data-role="main" class="ui-content">
