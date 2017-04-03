@@ -14,52 +14,49 @@
 </head>
 <body>
 
-
-
 <div data-role="page" id="home">
     <div data-role="header">
         <h1>New Turnoff</h1>
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">X</a>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
     <div data-role="content">
         
         <div data-role="main" class="ui-content">
             <form method="post" action="/action_page_post.php">
-                <label for="fname">Current Frozen Balance</label>
-                <label for="fname">$500.00</label>
-            </form>
-        </div>
-        
-        <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php">
-                <label for="fname">Add to Frozen Amount</label>
+                <label for="fname">Goal</label>
                 <input type="text" name="fname" id="fname">
             </form>
         </div>
         
         <div data-role="main" class="ui-content">
             <form method="post" action="/action_page_post.php">
-                <label for="fname">Credit Card Number</label>
-                <input type="text" name="fname" id="fname">
-            </form>
-        </div>
-        
-        <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php">
-                <label for="date">Expiration Date</label>
+                <label for="date">Turnoff Start Time</label>
                 <input type="date" name="date" id="date" value=""  />   
             </form>
         </div>
         
         <div data-role="main" class="ui-content">
             <form method="post" action="/action_page_post.php">
-                <label for="fname">CSV</label>
-                <input type="text" name="fname" id="fname">
+                <label for="date">Turnoff End Time</label>
+                <input type="date" name="date" id="date" value=""  />   
             </form>
         </div>
         
         <div data-role="main" class="ui-content">
-            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Add Money</a>    
+            <form method="post" action="/action_page_post.php">
+                <label for="date">Reminder</label>
+                <label for="select-choice-0" class="select"></label>
+                    <select name="select-choice-0" id="select-choice-0">
+                    <option value="standard">Daily</option>
+                    <option value="rush">Weekly</option>
+                    <option value="express">Bi-Weekly</option>
+                    <option value="overnight">Monthly</option>
+                    </select>
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Contact a friend</a>    
         </div>
 
     </div>   
