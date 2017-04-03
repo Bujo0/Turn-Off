@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <!--update view based on the device-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--get jquery mobile libraries and css-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>   
+    <script src="jQuery.ui.datepicker.js"></script>
+    <script src="jquery.ui.datepicker.mobile.js"></script>
+</head>
+<body>
+
+
+
+<div data-role="page" id="home">
+    <div data-role="header">
+        <h1>New Turnoff</h1>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">X</a>
+    </div><!-- /header -->
+    <div data-role="content">
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="fname">Current Frozen Balance</label>
+                <label for="fname">$500.00</label>
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="fname">Add to Frozen Amount</label>
+                <input type="text" name="fname" id="fname">
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="fname">Credit Card Number</label>
+                <input type="text" name="fname" id="fname">
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="date">Expiration Date</label>
+                <input type="date" name="date" id="date" value=""  />   
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="fname">CSV</label>
+                <input type="text" name="fname" id="fname">
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Add Money</a>    
+        </div>
+
+    </div>   
+</div>
+</body>
+</html>
