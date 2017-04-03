@@ -77,11 +77,45 @@
         <div data-role="navbar">
             <ul>
                 <li><a href="#landing" class="ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#profile">Profile</a></li>
                 <li><a href="#add_money">Add Money</a></li>
                 <li><a href="#help">Help</a></li>
             </ul>
         </div>
     </div><!-- /footer -->
+</div><!-- /page -->
+
+<div data-role="page" id="profile">
+    <div data-role="header">
+        <h1>Profile</h1>
+        <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-clock ui-btn-right ui-btn-icon-notext"> Search </a>
+    </div><!-- /header -->
+
+    <div data-role="content">
+        <ul  data-inset="true" data-role="listview" data-input="#filterBasic-input">
+            <li>
+                <a href="#" class="ui-btn ui-icon-lock ui-btn-icon-left" data-transition="flow">
+                    <h3> amount frozen:</h3> <p>$ 500.00</p>
+                    <h3> daily payment: </h3> <p>$ 10.00</p>
+
+                </a>
+            </li>
+            <li><a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left" data-transition="flow">Due Date: <p>April 4th, 2018</p> <p>50 days left</p> </a></li>
+            <li><a href="#" class="ui-btn ui-icon-user ui-btn-icon-left" data-transition="flow">Guardian: <p>Yoav Shaked</p></a></li>
+            <li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left" data-transition="flow">Charity:<p>National lung cancer association</p></a></li>
+        </ul>
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#landing">Home</a></li>
+                <li><a href="#profile" class="ui-btn-active ui-state-persist">Profile</a></li>
+                <li><a href="#add_money" >Add Money</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+        </div>
+    </div>
 </div><!-- /page -->
 
 <div data-role="page" id="add_money">
@@ -136,6 +170,7 @@
         <div data-role="navbar">
             <ul>
                 <li><a href="#landing">Home</a></li>
+                <li><a href="#profile">Profile</a></li>
                 <li><a href="#add_money" class="ui-btn-active ui-state-persist">Add Money</a></li>
                 <li><a href="#help">Help</a></li>
             </ul>
@@ -211,6 +246,7 @@
         <div data-role="navbar">
             <ul>
                 <li><a href="#landing" >Home</a></li>
+                <li><a href="#profile" >Profile</a></li>
                 <li><a href="#add_money">Add Money</a></li>
                 <li><a href="#help" class="ui-btn-active ui-state-persist">Help</a></li>
             </ul>
