@@ -68,8 +68,7 @@
         <h1>CS 179:  Design of Useful and Usable Interactive Systems, Spring 2017</h1>
 
         <!-- TODO 1: make these links appear as mobile buttons using the ui-btn class -->
-        <a href="http://cs179.org" class="ui-btn">Course Website</a>
-        <a href="#team" class="ui-btn">Team</a>
+        <a href="#guardian" class="ui-btn">Add a Guardian</a>
     </div><!-- /content -->
 
 
@@ -143,6 +142,31 @@
         
         <h4>visit us at <a href="http://cs179.org" target="_blank">cs179.org</a></h4>
     </div><!-- /footer -->
+</div>
+
+<div data-role="page" id="guardian">
+    <div data-role="header">
+        <h1>Contact a Guardian</h1>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+    </div><!-- /header -->
+    <div data-role="content">
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="fname">Friend's Name</label>
+                <input type="text" name="fname" id="fname">
+                <label for="fname">Friend's Contact</label>
+                <input type="text" name="fname" id="fname">
+                <label for="date">Note</label>
+                <input type="text" name="fname" id="fname">
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Send request</a>    
+        </div>
+
+    </div>   
 </div>
 
 
