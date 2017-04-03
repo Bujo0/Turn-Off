@@ -69,6 +69,7 @@
 
         <!-- TODO 1: make these links appear as mobile buttons using the ui-btn class -->
         <a href="#guardian" class="ui-btn">Add a Guardian</a>
+        <a href="#target" class="ui-btn">Update Target</a>
     </div><!-- /content -->
 
 
@@ -169,6 +170,29 @@
     </div>   
 </div>
 
+
+<div data-role="page" id="target">
+    <div data-role="header">
+        <h1>Smoking Target</h1>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+    </div><!-- /header -->
+    <div data-role="content">
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="fname">How many cigarettes per day do you currently smoke?</label>
+                <input type="number" name="fname" id="fname">
+                <label for="fname">What's your target for daily cigarette intake?</label>
+                <input type="number" name="fname" id="fname">
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Update</a>    
+        </div>
+
+    </div>   
+</div>
 
 <div data-role="page" id="team">
 
