@@ -52,7 +52,6 @@
           <a href="#home" class="ui-btn">Sign Up</a>
         </form>
 
-        <!-- TODO 1: make these links appear as mobile buttons using the ui-btn class -->
     </div><!-- /content -->
 
 </div><!-- /page -->
@@ -63,7 +62,7 @@
     <div data-role="header">
         <a href="#home" class="ui-btn-left" >Log Out</a>
         <h1>Home</h1>
-        <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-clock ui-btn-right ui-btn-icon-notext"> Update </a>
+        <a href="#update_guardian" class="ui-btn ui-shadow ui-corner-all ui-icon-clock ui-btn-right ui-btn-icon-notext"> Update </a>
     </div><!-- /header -->
 
     <div data-role="content">
@@ -256,6 +255,38 @@
         
         <div data-role="main" class="ui-content">
             <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Send request</a>    
+        </div>
+     </div>
+</div>
+
+<div data-role="page" id="update_guardian">
+    <div data-role="header">
+        <h1>Smoking Update</h1>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+    </div><!-- /header -->
+    <div data-role="content">
+        
+         <form action="/action_page.php">
+          Goal:<br>
+          <input type="text" name="goal_gigarette"><br>
+          Cigarette Count Today:<br>
+          <input type="text" name="today_count"><br><br>
+        <fieldset data-role="controlgroup">
+            <legend>Select Guardian to Notify</legend>
+              <label for="jason">Jason</label>
+              <input type="checkbox"  id="jason" value="jason">
+              <label for="yoav">Yoav</label>
+              <input type="checkbox"  id="yoav" value="yoav">
+              <label for="filip">Filip</label>
+              <input type="checkbox"  id="filip" value="filip">
+        </fieldset>
+
+          <img src="logo.png"  style="width:100%;margin:0 auto;">
+          
+        </form>
+        
+        <div data-role="main" class="ui-content">
+            <a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Check In</a>    
         </div>
      </div>
 </div>
