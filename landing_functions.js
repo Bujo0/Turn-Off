@@ -10,7 +10,7 @@ function show_money(frozen, daily) {
 function show_guardian(name) {
 
     guardian.append("<a href='#guardian' class='ui-btn ui-icon-user ui-btn-icon-left' data-transition='flow'>" +
-    	            "<h3> Guardian:</h3> <p>$" + name + "</p>" );
+    	            "<h3> Guardian:</h3> <p>" + name + "</p>" );
         
 }
 
