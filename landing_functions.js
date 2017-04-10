@@ -6,9 +6,14 @@ function show_money(frozen, daily) {
 }
 
 // Due Date:
-function change_date(date, days_left) {
+function show_date(date, days_left) {
 
     due_date.append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + date +"</p> <p>"+days_left+" days </p> </a></li>");            
+}
+
+function show_charity(charity_name) {
+
+    charity.append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + charity_name + "</p> </a></li>");            
 }
 
 
@@ -17,15 +22,17 @@ $(document).ready(function () {
     // get references to notes
     money = $("#money");
     due_date = $("#due_date");
+    charity = $('#charity');
 
     frozen = 10
     daily = 100
-
-
     show_money(frozen, daily)
 
     date = "June 5th"
     days_left = 50
-    change_date(date, days_left)
+    show_date(date, days_left)
+
+    charity_name = "Red Cross";
+    show_charity(charity_name)
 
 });
