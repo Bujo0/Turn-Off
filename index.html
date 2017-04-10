@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="landing_functions.js"></script>
 </head>
 <body>
 
@@ -66,14 +67,9 @@
     </div><!-- /header -->
 
     <div data-role="content">
-        <ul  data-inset="true" data-role="listview" data-input="#filterBasic-input">
-            <li>
-                <a href="#add_money" class="ui-btn ui-icon-lock ui-btn-icon-left" data-transition="flow">
-                    <h3> Amount Frozen:</h3> <p>$ 500.00</p>
-                    <h3> Daily Refund: </h3> <p>$ 10.00</p>
+        <ul data-inset="true" data-role="listview" data-input="#filterBasic-input">
+            <li id="money"/>
 
-                </a>
-            </li>
             <li><a href="#due_date" class="ui-btn ui-icon-edit ui-btn-icon-left" data-transition="flow">Due Date: <p>May 24th, 2017</p> <p>50 days left</p> </a></li>
             <li>
                 <a href="#target" class="ui-btn ui-icon-lock ui-btn-icon-left" data-transition="flow">
