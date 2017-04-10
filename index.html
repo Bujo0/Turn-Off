@@ -43,14 +43,14 @@
     <div data-role="content">
         <h1>Sign Up</h1>   
         <!-- <img src="logo.png"  style="width:100%;margin:0 auto;">  logo for later -->
-        <form action="/action_page.php">
+        <form id="signup" action="/action_page.php">
           Username:<br>
-          <input type="text" name="username"><br>
+          <input type="text" id="username"><br>
           Password:<br>
-          <input type="password" name="password"><br><br>
+          <input type="password" id="password"><br><br>
           Repeat Your Password:<br>
-          <input type="password" name="password2"><br><br>
-          <a href="#home" class="ui-btn">Sign Up</a>
+          <input type="password" id="password2"><br><br>
+          <a href="#home" class="ui-btn" onclick="add_user()">Sign Up</a>
         </form>
 
     </div><!-- /content -->

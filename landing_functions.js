@@ -17,9 +17,7 @@ function show_charity(charity_name) {
 }
 
 
-// enabling adding notes
 $(document).ready(function () {
-    // get references to notes
     money = $("#money");
     due_date = $("#due_date");
     charity = $('#charity');
@@ -32,7 +30,26 @@ $(document).ready(function () {
     days_left = 50
     show_date(date, days_left)
 
-    charity_name = "Red Cross";
+    charity_name = "Red Cross"
     show_charity(charity_name)
 
 });
+
+var users = []
+
+if (localStorage.users) {
+    users = JSON.parse(localStorage.users)
+} else {
+    localStorage.users = JSON.stringify([])
+}
+
+
+function add_user() {
+	console.log(document.getElementById("username").value)	
+
+   if(document.getElementById("password").value == document.getElementById("password2").value){
+   	user = {username: document.getElementById("username").value, password: document.getElementById("password").value}
+   	users.push(user);
+   	localStorage.users = JSON.stringify(users)
+   }       
+}
