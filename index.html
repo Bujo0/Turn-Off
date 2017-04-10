@@ -43,7 +43,7 @@
     <div data-role="content">
         <h1>Sign Up</h1>   
         <!-- <img src="logo.png"  style="width:100%;margin:0 auto;">  logo for later -->
-        <form id="signup" action="/action_page.php">
+        <form action="/action_page.php">
           Username:<br>
           <input type="text" id="username"><br>
           Password:<br>
@@ -70,16 +70,11 @@
         <ul data-inset="true" data-role="listview" data-input="#filterBasic-input">
             <li id="money"/>
 
-            <li id = "due_date"/>
-
-            <li>
-                <a href="#target" class="ui-btn ui-icon-lock ui-btn-icon-left" data-transition="flow">
-                    <h3> Target cigarettes:</h3> <p>0 cigarettes</p>
-                    <h3> Average smoked per day: </h3> <p> 6.4 cigarettes</p>
-                </a>
-            </li>
-            <li><a href="#guardian" class="ui-btn ui-icon-user ui-btn-icon-left" data-transition="flow">Guardian: <p>Yoav Shaked</p></a></li>
-            <li id = "charity"/>
+            <li id="due_date"/>
+            <li id="target"/>
+            <li id="guardian"/>
+            
+            <li id="charity"/>
         </ul>
     </div><!-- /content -->
 
@@ -105,32 +100,12 @@
             <form method="post" action="/action_page_post.php">
                 <label for="fname">Current Frozen Balance</label>
                 <label for="fname">$500.00</label>
-            </form>
-        </div>
-        
-        <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php">
                 <label for="fname">Add to Frozen Amount</label>
                 <input type="text" name="fname" id="fname">
-            </form>
-        </div>
-        
-        <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php">
                 <label for="fname">Credit Card Number</label>
                 <input type="text" name="fname" id="fname">
-            </form>
-        </div>
-        
-        <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php">
                 <label for="date">Expiration Date</label>
                 <input type="date" name="date" id="date" value=""/>   
-            </form>
-        </div>
-        
-        <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php">
                 <label for="fname">CSV</label>
                 <input type="text" name="fname" id="fname">
             </form>
@@ -208,10 +183,6 @@
     </div>   
 </div>
 
-
-
-
-
 <div data-role="page" id="target">
     <div data-role="header">
         <h1>Smoking Target</h1>
@@ -278,7 +249,7 @@
               <input type="checkbox"  id="filip" value="filip">
         </fieldset>
 
-          <!-- <img src="logo.png"  style="width:100%;margin:0 auto;">  logo for later -->	
+          <!-- <img src="logo.png"  style="width:100%;margin:0 auto;">  logo for later -->  
           
         </form>
         

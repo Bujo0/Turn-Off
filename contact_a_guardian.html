@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <!--update view based on the device-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--get jquery mobile libraries and css-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>   
+</head>
+<body>
+
+<div data-role="page" id="home">
+    <div data-role="header">
+        <h1>Contact a Guardian</h1>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+    </div><!-- /header -->
+    <div data-role="content">
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="fname">Friend's Name</label>
+                <input type="text" name="fname" id="fname">
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="fname">Friend's Contact</label>
+                <input type="text" name="fname" id="fname">
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="fname">Amount of Money</label>
+                <input type="text" name="fname" id="fname">
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+                <label for="date">Note</label>
+                <input type="text" name="fname" id="fname">
+            </form>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Send request</a>    
+        </div>
+
+    </div>   
+</div>
+</body>
+</html>
