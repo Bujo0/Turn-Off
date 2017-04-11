@@ -34,12 +34,12 @@ function show_guardian(name) {
 // Due Date:
 function show_date(date, days_left) {
 
-    due_date.append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + date +"</p> <p>"+days_left+" days </p> </a></li>");            
+    due_date.empty().append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + date +"</p> <p>"+days_left+" days </p> </a></li>");            
 }
 
-function show_charity(charity_name) {
+function show_charity() {
 
-    charity.append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + charity_name + "</p> </a></li>");     
+    charity.empty().append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + charity_chosen + "</p> </a></li>");     
 
 }
 
@@ -64,8 +64,11 @@ $(document).ready(function () {
     days_left = 50
     show_date(date, days_left)
 
-    charity_name = "Red Cross";
-    show_charity(charity_name)
+
+    show_charity()
+
+    update_charity_form = $("#update_charity_form");
+    show_update_charity();
 
 });
 

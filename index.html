@@ -11,6 +11,7 @@
     <script type="text/javascript" src="landing_functions.js"></script>
     <script type="text/javascript" src="add_money.js"></script>
     <script type="text/javascript" src="adjust_target.js"></script>
+    <script type="text/javascript" src="charity.js"></script>
 </head>
 <body>
 
@@ -153,29 +154,13 @@
 
 <div data-role="page" id="charities">
     <div data-role="header">
-        <h1>Contact a Guardian</h1>
+        <h1>Select a Charity</h1>
         <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
-    <div data-role="content">
         
-    <div data-role="content">
-        <h3>Charities:</h3>
-        <form class= "ui-filterable">
-            <input id="filterBasic-input" data-type = "search">
-        </form>
-        <!--TODO 2a: make the list look nicer by defining it as a listview -->
-        <!--TODO 3: make the list filterable using a data-filter -->
-        <ul  data-inset="true" data-role="listview" data-input="#filterBasic-input">
-            <li><a href="">Red Cross</a></li>
-            <li><a href="">American Lung Associaton</a></li>
-            <li><a href="">American Heart Asssociation</a></li>
-            <li><a href="">UNICEF</a></li>
-        </ul>
+    <div data-role="content" id = "update_charity_form">
+
     </div><!-- /content -->
-        
-        <div data-role="main" class="ui-content">
-            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Send request</a>    
-        </div>
 
     </div>   
 </div>
