@@ -1,8 +1,4 @@
-function show_target(target_cigs, avg_smoked) {
-    target.append("<a href= '#target' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>"+
-                        "<h3> Target cigarettes:</h3> <p>"+ target_cigs + " cigarettes</p>"+
-                        "<h3> Average smoked per day: </h3> <p>" + avg_smoked + " cigarettes</p>");
-}
+
 
 function show_guardian(name) {
 
@@ -34,10 +30,6 @@ $(document).ready(function () {
     guardian = $("#guardian");
 
 
-    target_cigs = 0;
-    avg_smoked = 6.4;
-    show_target(target_cigs, avg_smoked);
-
 
 
     name = "Kally Wu"
@@ -51,6 +43,7 @@ $(document).ready(function () {
     show_charity(charity_name)
 
 });
+
 
 var users = []
 
