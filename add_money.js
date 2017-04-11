@@ -1,5 +1,7 @@
- var frozen = 5000;
- var daily = 10;
+var frozen = 5000;
+var daily = 10;
+var user_smoking_goal = 1;
+var smoking_history = [0,0,0,1,2,3,4,1,5,6,1,0,5,1,5,6,8]
 
 
 
@@ -20,6 +22,30 @@ function show_money(frozen, daily) {
                     );
             
 }
+
+function show_update_guardian() {
+
+    update_guardian_form.empty().append('<form action="/action_page.php">' +
+          'Goal: ' + user_smoking_goal + ' cigeratte(s)<br>' + 
+          'Cigarette Count Today:<br>' +
+          '<input type="text" id="today_count"><br><br>' +
+        '<fieldset data-role="controlgroup">' + 
+            '<legend>Select Guardian to Notify</legend>' +
+              '<label for="jason">Jason</label>' + 
+              '<input type="checkbox"  id="jason" value="Jason">' + 
+              '<label for="yoav">Yoav</label>' + 
+              '<input type="checkbox"  id="yoav" value="Yoav">' + 
+        '</fieldset>' + 
+        '<a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" onclick="daily_check_in();">Check In</a>' + 
+        '</form>');
+            
+}
+
+
+ 
+
+
+
 
 
 function add_money_to_frozen(frozen) {
@@ -62,6 +88,55 @@ function update_frozen() {
 	
 }
 
+function daily_check_in() {
+    var today_count = document.getElementById("today_count").value;
+
+    // I shall probably make guardian names into variables
+    var guardian_name = ""
+    if ((document.getElementById("jason").checked) || (document.getElementById("yoav").checked)) {
+        if ((document.getElementById("jason").checked) && (document.getElementById("yoav").checked)) {
+            alert("you can only select 1 guardian")
+        }
+        else {
+            if (document.getElementById("jason").checked) {
+                guardian_name = document.getElementById("jason").value
+            }
+            if (document.getElementById("yoav").checked) {
+                guardian_name = document.getElementById("yoav").value
+            }
+            if( !(isNaN(parseFloat(today_count)))) {
+                if ((isFloat(parseFloat(today_count))) || (isInteger(parseFloat(today_count)))) {
+                    smoking_history.push(parseFloat(today_count))
+
+                    alert_text = "You smoked " + today_count + " cigeratte(s) today. " + "A message of confirmation has been sent to " + guardian_name+ "."
+                    alert(alert_text)
+
+                }
+                else {
+                    alert("sorry but your input must be a number ")
+                }   
+            }
+            else {
+                alert("your input is empty")
+            }
+
+        }
+
+
+        
+
+
+    }
+    else {
+         alert("You need to select a guardian")
+
+    }
+
+
+    
+
+}
+
 
 // enabling adding notes
 $(document).ready(function () {
@@ -72,9 +147,13 @@ $(document).ready(function () {
 
     add_money_form = $("#add_money_form");
 
-    show_money(frozen, daily)
+    update_guardian_form = $("#update_guardian_form");
 
-    add_money_to_frozen(frozen)
+    show_money(frozen, daily);
+
+    add_money_to_frozen(frozen);
+
+    show_update_guardian();
 
 
 

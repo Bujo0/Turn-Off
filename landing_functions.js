@@ -1,11 +1,3 @@
-function show_money(frozen, daily) {
-
-    money.append("<a href='#add_money' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>" +
-                    "<h3> Amount Frozen:</h3> <p>$" + frozen + " </p>" +
-                    "<h3> Daily Refund: </h3> <p>$" + daily + " </p>");
-        
-}
-
 function show_target(target_cigs, avg_smoked) {
     target.append("<a href= '#target' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>"+
                         "<h3> Target cigarettes:</h3> <p>"+ target_cigs + " cigarettes</p>"+
@@ -41,9 +33,6 @@ $(document).ready(function () {
     charity = $("#charity");
     guardian = $("#guardian");
 
-    frozen = 1000;
-    daily = 100;
-    show_money(frozen, daily);
 
     target_cigs = 0;
     avg_smoked = 6.4;
