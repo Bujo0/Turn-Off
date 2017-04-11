@@ -108,6 +108,8 @@ function add_user() {
 
 }
 
+
+
 function validate() {
 	
 	var pas = document.getElementById("login_password").value;
