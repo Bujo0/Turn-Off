@@ -41,11 +41,6 @@ function show_update_guardian() {
 }
 
 
- 
-
-
-
-
 
 function add_money_to_frozen(frozen) {
 
@@ -61,7 +56,7 @@ function add_money_to_frozen(frozen) {
                 '<input type="date" name="date" id="date" value=""/> ' +
                 '<label for="fname">CSV</label>' + 
                 '<input type="text" name="fname" id="fname"> ' +
-                '<a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" id="add_money_button" onclick="update_frozen();">Add Money</a> '
+                '<button class="ui-btn" onclick="update_frozen()">Add Money</button>'
                     );
 
 }
@@ -75,14 +70,21 @@ function update_frozen() {
 			// alert(frozen);
 			show_money(frozen,daily);
             add_money_to_frozen(frozen);
+            $.mobile.pageLoadErrorMessage = "";
+            window.location.replace("index.html#landing")
 
 		}
 		else {
-			alert("sorry but your input must be a number ")
+			alert("sorry but your input must be a number ");
+            $.mobile.pageLoadErrorMessage = "";
+            window.location.replace("index.html#add_money")
 		}	
 	}
 	else {
-		alert("your input is empty")
+		alert("your input is empty");
+        $.mobile.pageLoadErrorMessage = "";
+        window.location.replace("index.html#add_money")
+
 	}
 	
 	
