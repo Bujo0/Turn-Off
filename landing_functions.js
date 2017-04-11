@@ -84,3 +84,20 @@ function add_user() {
    }
 
 }
+
+function validate() {
+	
+	var pas = document.getElementById("login_password").value;
+	var username = document.getElementById("login_username").value;
+
+	for (user in users){
+
+		console.log(user)
+		if(users[user].username == username && users[user].password == pas){
+			window.location = "index.html#landing"
+			return;
+		}
+	}
+
+	alert("Wrong Username or Password. Try again!");
+}
