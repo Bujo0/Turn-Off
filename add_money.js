@@ -1,7 +1,6 @@
 var frozen = 5000;
 var daily = 10;
-var user_smoking_goal = 1;
-var smoking_history = [0,0,0,1,2,3,4,1,5,6,1,0,5,1,5,6,8]
+
 
 
 
@@ -26,7 +25,7 @@ function show_money(frozen, daily) {
 function show_update_guardian() {
 
     update_guardian_form.empty().append('<form action="/action_page.php">' +
-          'Goal: ' + user_smoking_goal + ' cigeratte(s)<br>' + 
+          'Goal: ' + user_smoking_target + ' cigeratte(s)<br>' + 
           'Cigarette Count Today:<br>' +
           '<input type="text" id="today_count"><br><br>' +
         '<fieldset data-role="controlgroup">' + 
@@ -108,6 +107,7 @@ function daily_check_in() {
             if( !(isNaN(parseFloat(today_count)))) {
                 if ((isFloat(parseFloat(today_count))) || (isInteger(parseFloat(today_count)))) {
                     smoking_history.push(parseFloat(today_count))
+                    show_target()
 
                     alert_text = "You smoked " + today_count + " cigeratte(s) today. " + "A message of confirmation has been sent to " + guardian_name+ "."
                     alert(alert_text)
