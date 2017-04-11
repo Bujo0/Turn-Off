@@ -103,7 +103,8 @@ function add_user() {
    			guardian: "",
    			smoking_target: 0,
    			charity: "",
-   			due_date: new Date("2017-05-15")
+   			due_date: new Date("2017-05-15"), 
+   			amount_frozen: 0
    			}
    	users.push(user);
    	console.log(user);

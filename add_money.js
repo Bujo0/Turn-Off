@@ -1,4 +1,4 @@
-var frozen = 5000;
+var frozen = 0;
 var daily = 10;
 
 
@@ -14,6 +14,7 @@ function isInteger(n) {
 
 // ? TODO: make sure the input is not empty and must be aan integer
 function show_money(frozen, daily) {
+    JSON.parse(localStorage.current_user).amount_frozen
 
     money.empty().append("<a href='#add_money' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>" +
                     "<h3> Amount Frozen:</h3> <p>$" + frozen + " </p>" +
@@ -47,7 +48,7 @@ function add_money_to_frozen(frozen) {
 	// somehow frozen is not updated in this page
 
 	add_money_form.empty().append("<label for='fname'>Current Frozen Balance</label>" + 
-                "<label for='fname'>" + '$ ' + frozen + "</label>"  + 
+                "<label for='fname'>" + '$ ' + JSON.parse(localStorage.current_user).amount_frozen + "</label>"  + 
                 "<label for='fname'>Add to Frozen Amount</label>" + 
                 "<input type='text' name='fname' id='added_amount'>" + 
                 "<label for='fname'>Credit Card Number</label>" + 
@@ -64,9 +65,16 @@ function add_money_to_frozen(frozen) {
 function update_frozen() {
 	var added_f = document.getElementById("added_amount").value;
 
+
+    frozen = JSON.parse(localStorage.current_user).amount_frozen
+
 	if( !(isNaN(parseFloat(added_f)))) {
 		if ((isFloat(parseFloat(added_f))) | (isInteger(parseFloat(added_f)))) {
 			frozen = parseFloat(frozen) + parseFloat(added_f);
+
+            var temp_user = JSON.parse(localStorage.current_user);
+            temp_user.amount_frozen = frozen;
+            localStorage.current_user = JSON.stringify(temp_user)
 			// alert(frozen);
 			show_money(frozen,daily);
             add_money_to_frozen(frozen);
