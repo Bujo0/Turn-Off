@@ -95,6 +95,8 @@ function daily_check_in() {
 
     // I shall probably make guardian names into variables
     var guardian_name = ""
+
+    smoking_history = JSON.parse(localStorage.current_user).smoking_history;
     if ((document.getElementById("jason").checked) || (document.getElementById("yoav").checked)) {
         if ((document.getElementById("jason").checked) && (document.getElementById("yoav").checked)) {
             alert("you can only select 1 guardian")
@@ -108,7 +110,12 @@ function daily_check_in() {
             }
             if( !(isNaN(parseFloat(today_count)))) {
                 if ((isFloat(parseFloat(today_count))) || (isInteger(parseFloat(today_count)))) {
-                    smoking_history.push(parseFloat(today_count))
+                    var entry = {count: parseFloat(today_count), date: Date(Date.now())}
+                    smoking_history.push(entry)
+                    var temp_user = JSON.parse(localStorage.current_user)
+                    temp_user.smoking_history = smoking_history
+                    localStorage.current_user = JSON.stringify(temp_user)
+                    console.log(smoking_history)
                     show_target()
 
                     alert_text = "You smoked " + today_count + " cigeratte(s) today. " + "A message of confirmation has been sent to " + guardian_name+ "."

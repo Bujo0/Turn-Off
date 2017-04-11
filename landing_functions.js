@@ -70,6 +70,10 @@ $(document).ready(function () {
 });
 
 
+
+
+
+// users logic
 var users = []
 
 if (localStorage.users) {
