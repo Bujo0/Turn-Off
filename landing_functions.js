@@ -78,8 +78,16 @@ if (localStorage.users) {
 function add_user() {	
 
    if(document.getElementById("password").value == document.getElementById("password2").value){
-   	user = {username: document.getElementById("username").value, password: document.getElementById("password").value}
+   	user = {username: document.getElementById("username").value,
+   			password: document.getElementById("password").value,
+   			smoking_history: [],
+   			guardian: "",
+   			smoking_target: 0,
+   			charity: "",
+   			due_date: new Date("2017-05-15")
+   			}
    	users.push(user);
+   	console.log(user);
    	localStorage.users = JSON.stringify(users)
    }
 
