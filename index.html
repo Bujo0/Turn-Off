@@ -9,6 +9,7 @@
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="landing_functions.js"></script>
+    <script type="text/javascript" src="add_money.js"></script>
 </head>
 <body>
 
@@ -94,28 +95,24 @@
         <h1>Add Money</h1>
         <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">X</a>
     </div><!-- /header -->
-    <div data-role="content">
-        
+    <div data-role="content" >    
         <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php">
-                <label for="fname">Current Frozen Balance</label>
-                <label for="fname">$500.00</label>
-                <label for="fname">Add to Frozen Amount</label>
-                <input type="text" name="fname" id="fname">
+            <form method="post" action="/action_page_post.php" id = "add_money_form">
+<!--                <label for="fname">Current Frozen Balance</label>
+                <label for="fname">{$frozen};%</label> -->
+<!--                 <label for="fname">Add to Frozen Amount</label>
+                <input type="text" name="fname" id="added_amount">
                 <label for="fname">Credit Card Number</label>
-                <input type="text" name="fname" id="fname">
+                <input type="text" name="fname" id="credit_card_number">
                 <label for="date">Expiration Date</label>
-                <input type="date" name="date" id="date" value=""/>   
+                <input type="date" name="date" id="date" value=""/> 
                 <label for="fname">CSV</label>
-                <input type="text" name="fname" id="fname">
+                <input type="text" name="fname" id="fname"> 
+                <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" id="add_money_button" onclick="update_frozen();">Add Money</a>  -->
             </form>
         </div>
-        
-        <div data-role="main" class="ui-content">
-            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Add Money</a>    
-        </div>
-
-    </div>   
+            
+    </div>  
 
     <div data-role="footer">
         <div data-role="navbar">
