@@ -18,7 +18,7 @@ function list_average (history) {
 
 }
 
-function show_target(user_smoking_target, smoking_history) {
+function show_target() {
 
 	var avg_smoked = list_average(smoking_history); 
 
@@ -34,11 +34,8 @@ function show_target(user_smoking_target, smoking_history) {
 
 function show_change_target_form() {
 
-	console.log(user_smoking_target);
 
-	console.log("AAAA")
-
-	change_target_form.append("<label for='fname'>Current target:</label>" + 
+	change_target_form.empty().append("<label for='fname'>Current target:</label>" + 
                 "<h3>" + user_smoking_target + "</h3>"  + 
                 "<label for='fname'>change the target to:</label>" + 
                 "<input type='text' name='fname' id='updated_target'>" + 
@@ -83,11 +80,11 @@ $(document).ready(function () {
     change_target_form = $("#change_target_form");
 
 
-    show_target(user_smoking_target, smoking_history);
+    show_target();
 
     // show_change_target_form();
 
-    change_target();
+    //change_target();
 
 
 
