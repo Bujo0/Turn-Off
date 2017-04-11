@@ -11,11 +11,17 @@ function update_guardian() {
 
 
     if((g_name === '') || (g_contact === '')) {
-        alert("Please input your guardian name and contact information")
+        alert("Please input your guardian name and contact information");
+        $.mobile.pageLoadErrorMessage = "";
+        window.location.replace("index.html#guardian")
+        
     }
     else {
         
-        show_guardian(g_name)
+        show_guardian(g_name);
+        $.mobile.pageLoadErrorMessage = "";
+        window.location.replace("index.html#landing")
+
     }
     
     
