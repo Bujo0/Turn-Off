@@ -75,6 +75,7 @@ function update_frozen() {
 			frozen = parseFloat(frozen) + parseFloat(added_f);
 			// alert(frozen);
 			show_money(frozen,daily);
+            add_money_to_frozen(frozen);
 
 		}
 		else {
