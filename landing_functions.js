@@ -17,8 +17,6 @@ function update_guardian() {
         
         show_guardian(g_name)
     }
-    
-    
 }
 
 function show_guardian(name) {
@@ -35,7 +33,7 @@ function show_date(date, days_left) {
 
 function show_charity(charity_name) {
 
-    charity.append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + charity_name + "</p> </a></li>");            
+    charity.append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + charity_name + "</p> </a></li>");     
 
 }
 
@@ -75,6 +73,11 @@ if (localStorage.users) {
 }
 
 
+if (!localStorage.current_user) {
+    localStorage.current_user = JSON.stringify("")
+}
+
+
 function add_user() {	
 
 	if(document.getElementById("username").value == ""){
@@ -108,6 +111,7 @@ function validate() {
 
 		if(users[user].username == username && users[user].password == pas){
 			window.location = "index.html#landing"
+			localStorage.current_user = JSON.stringify(users[user]);
 			return;
 		}
 	}
