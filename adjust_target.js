@@ -14,7 +14,7 @@ function list_average (history) {
 	}
 
 
-	return(history.reduce(add, 0)/history.length);
+	return(Math.round((history.reduce(add, 0)/history.length)*10)/10);
 
 }
 

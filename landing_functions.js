@@ -83,10 +83,40 @@ if (localStorage.users) {
 
 function add_user() {	
 
+	if(document.getElementById("username").value == ""){
+		alert("Empty Username! Try again!")
+		window.location = "index.html#home"
+		return;
+	}
+
    if(document.getElementById("password").value == document.getElementById("password2").value){
-   	user = {username: document.getElementById("username").value, password: document.getElementById("password").value}
+   	user = {username: document.getElementById("username").value,
+   			password: document.getElementById("password").value,
+   			smoking_history: [],
+   			guardian: "",
+   			smoking_target: 0,
+   			charity: "",
+   			due_date: new Date("2017-05-15")
+   			}
    	users.push(user);
+   	console.log(user);
    	localStorage.users = JSON.stringify(users)
    }
 
+}
+
+function validate() {
+	
+	var pas = document.getElementById("login_password").value;
+	var username = document.getElementById("login_username").value;
+
+	for (user in users){
+
+		if(users[user].username == username && users[user].password == pas){
+			window.location = "index.html#landing"
+			return;
+		}
+	}
+
+	alert("Wrong Username or Password. Try again!");
 }
