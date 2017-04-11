@@ -14,8 +14,11 @@ function isInteger(n) {
 
 // ? TODO: make sure the input is not empty and must be aan integer
 function show_money(frozen, daily) {
-    JSON.parse(localStorage.current_user).amount_frozen
 
+    var timeDiff = Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now())
+    var days_left = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+    daily = JSON.parse(localStorage.current_user).amount_frozen / days_left
+    frozen = JSON.parse(localStorage.current_user).amount_frozen
     money.empty().append("<a href='#add_money' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>" +
                     "<h3> Amount Frozen:</h3> <p>$" + frozen + " </p>" +
                     "<h3> Daily Refund: </h3> <p>$" + daily + " </p>"  
