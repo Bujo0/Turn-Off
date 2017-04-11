@@ -77,6 +77,12 @@ if (localStorage.users) {
 
 function add_user() {	
 
+	if(document.getElementById("username").value == ""){
+		alert("Empty Username! Try again!")
+		window.location = "index.html#home"
+		return;
+	}
+
    if(document.getElementById("password").value == document.getElementById("password2").value){
    	user = {username: document.getElementById("username").value,
    			password: document.getElementById("password").value,
@@ -100,7 +106,6 @@ function validate() {
 
 	for (user in users){
 
-		console.log(user)
 		if(users[user].username == username && users[user].password == pas){
 			window.location = "index.html#landing"
 			return;
