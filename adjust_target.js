@@ -13,14 +13,31 @@ function list_average (history) {
 		return x + y;
 	}
 
+	total = 0 
 
-	return(Math.round((history.reduce(add, 0)/history.length)*10)/10);
+	for (i = 0; i<history.length; i++) {
+
+		total = total + history[i]; 
+
+	}
+
+
+	return Math.round((total/history.length*10)/10);
+
+
+	//return Math.round((history.reduce(add, 0)/history.length*10)/10);
 
 }
 
 function show_target() {
 
-	var avg_smoked = list_average(JSON.parse(localStorage.current_user).smoking_history); 
+	list_daily_cig = []
+
+	for (i=0; i<JSON.parse(localStorage.current_user).smoking_history.length; i++){
+		list_daily_cig.push(JSON.parse(localStorage.current_user).smoking_history[i].count)
+	} 
+
+	avg_smoked = list_average(list_daily_cig);
 
     target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>"+
                         "<h3> Target cigarettes:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
