@@ -1,10 +1,4 @@
 
-
-$("#guardian_request").click(function(){
-        alert("your input is empty")
-    });
-
-
 function update_guardian() {
     g_name = document.getElementById("guardian_name").value;
     g_contact = document.getElementById("guardian_contact").value;
@@ -25,11 +19,14 @@ function update_guardian() {
     }
 }
 
+
 function show_guardian(name) {
     
     guardian.empty().append("<a href='#guardian' class='ui-btn ui-icon-user ui-btn-icon-left' data-transition='flow'>" +
                     "<h3> Guardian:</h3> <p>" + name + "</p>" );
 }
+
+
 
 // Due Date:
 function show_date(date, days_left) {
@@ -37,9 +34,26 @@ function show_date(date, days_left) {
     due_date.append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + date +"</p> <p>"+days_left+" days </p> </a></li>");            
 }
 
-function show_charity(charity_name) {
+function update_charity() {
+    c_name = document.getElementById("charity_name").value;
 
-    charity.append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + charity_name + "</p> </a></li>");     
+
+    if(c_name === '') {
+        alert("Please input your charity organization")
+        
+    }
+    else {
+        
+        show_charity(c_name);
+
+    }
+}
+
+
+function show_charity(name) {
+
+    charity.empty().append("<a href='#charity' class='ui-btn ui-icon-user ui-btn-icon-left' data-transition='flow'>" +
+                    "<h3> Charity:</h3> <p>" + name + "</p>" );
 
 }
 
@@ -51,12 +65,9 @@ $(document).ready(function () {
     money = $("#money");
     target = $("#target");
     due_date = $("#due_date");
-    charity = $("#charity");
     guardian = $("#guardian");
+    charity = $("#charity");
 
-
-
-    add_guadian = $("#add_guadian");
     name = "None"
     show_guardian(name)
 
@@ -64,8 +75,10 @@ $(document).ready(function () {
     days_left = 50
     show_date(date, days_left)
 
-    charity_name = "Red Cross";
-    show_charity(charity_name)
+    
+    
+    name = "None"
+    show_charity(name)
 
 });
 

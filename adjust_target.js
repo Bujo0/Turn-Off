@@ -1,4 +1,3 @@
-
 var user_smoking_target = 50;
 var smoking_history = [0,0,0,1,2,3,4,1,5,6,1,0,5,1,5,6,8]
 
