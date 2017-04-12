@@ -74,6 +74,7 @@ function change_target() {
 			localStorage.current_user = JSON.stringify(temp_user);
 			// alert(frozen);
 			show_target(JSON.parse(localStorage.current_user).smoking_target,JSON.parse(localStorage.current_user).smoking_history);
+			show_update_guardian();
 
 
 
