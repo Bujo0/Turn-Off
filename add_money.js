@@ -29,7 +29,7 @@ function show_money(frozen, daily) {
 function show_update_guardian() {
 
     update_guardian_form.empty().append('<form action="/action_page.php">' +
-          'Goal: ' + user_smoking_target + ' cigeratte(s)<br>' + 
+          'Goal: ' + JSON.parse(localStorage.current_user).smoking_target + ' cigeratte(s)<br>' + 
           'Cigarette Count Today:<br>' +
           '<input type="text" id="today_count"><br><br>' +
         '<fieldset data-role="controlgroup">' + 

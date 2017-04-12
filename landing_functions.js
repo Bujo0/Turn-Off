@@ -32,9 +32,9 @@ function show_guardian(name) {
 }
 
 // Due Date:
-function show_date(date, days_left) {
+function show_date() {
 
-    due_date.empty().append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + date +"</p> <p>"+days_left+" days </p> </a></li>");            
+    due_date.empty().append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + (new Date(JSON.parse(localStorage.current_user).due_date)).toString().substring(0,16) +"</p> <p>"+Math.ceil(Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now()) / (1000 * 3600 * 24))+" days </p> </a></li>");            
 }
 
 function show_charity() {
@@ -60,9 +60,7 @@ $(document).ready(function () {
     name = "None"
     show_guardian(name)
 
-    date = "June 5th"
-    days_left = 50
-    show_date(date, days_left)
+    show_date()
 
 
     show_charity()

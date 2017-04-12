@@ -56,9 +56,29 @@ function show_change_target_form() {
                 "<h3>" + JSON.parse(localStorage.current_user).smoking_target + "</h3>"  + 
                 "<label for='fname'>change the target to:</label>" + 
                 "<input type='text' name='fname' id='updated_target'>" + 
-                '<a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" id="change_target_button" onclick="change_target();">Change Target</a> '
+                '<button data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" id="change_target_button" onclick="change_target();">Change Target</button> '
                     );
 
+}
+
+function update_guardian() {
+    g_name = document.getElementById("guardian_name").value;
+    g_contact = document.getElementById("guardian_contact").value;
+
+
+    if((g_name === '') || (g_contact === '')) {
+        alert("Please input your guardian name and contact information");
+        $.mobile.pageLoadErrorMessage = "";
+        window.location.replace("index.html#guardian")
+        
+    }
+    else {
+        
+        show_guardian(g_name);
+        $.mobile.pageLoadErrorMessage = "";
+        window.location.replace("index.html#landing")
+
+    }
 }
 
 function change_target() {
@@ -66,26 +86,35 @@ function change_target() {
 	console.log('station1');
 
 	var new_target = document.getElementById("updated_target").value;
-	if( !(isNaN(parseFloat(new_target)))) {
-		if ((isInteger(parseFloat(new_target)))) {
 
-			temp_user = JSON.parse(localStorage.current_user);
-			temp_user.smoking_target = new_target;
-			localStorage.current_user = JSON.stringify(temp_user);
-			// alert(frozen);
-			show_target(JSON.parse(localStorage.current_user).smoking_target,JSON.parse(localStorage.current_user).smoking_history);
+	if(new_target === '') {
+        alert("Please input a new target");
+        $.mobile.pageLoadErrorMessage = "";
+        window.location.replace("index.html#new_target")	
+	}
 
+	else{
 
+		if( !(isNaN(parseFloat(new_target)))) {
+			if ((isInteger(parseFloat(new_target)))) {
 
+				temp_user = JSON.parse(localStorage.current_user);
+				temp_user.smoking_target = new_target;
+				localStorage.current_user = JSON.stringify(temp_user);
+				// alert(frozen);
+				show_target(JSON.parse(localStorage.current_user).smoking_target,JSON.parse(localStorage.current_user).smoking_history);
+				show_update_guardian();
+				window.location.replace("index.html#landing")
+
+			}
+			else {
+				alert("sorry but your input must be a number ")
+			}	
 		}
 		else {
-			alert("sorry but your input must be a number ")
-		}	
+			alert("your input is empty")
+		}
 	}
-	else {
-		alert("your input is empty")
-	}
-	
 	
 }
 
