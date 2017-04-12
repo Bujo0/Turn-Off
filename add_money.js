@@ -1,4 +1,4 @@
-var frozen = 5000;
+var frozen = 0;
 var daily = 10;
 
 
@@ -13,10 +13,14 @@ function isInteger(n) {
 
 
 // ? TODO: make sure the input is not empty and must be aan integer
-function show_money() {
+function show_money(frozen, daily) {
 
+    var timeDiff = Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now())
+    var days_left = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+    daily = JSON.parse(localStorage.current_user).amount_frozen / days_left
+    frozen = JSON.parse(localStorage.current_user).amount_frozen
     money.empty().append("<a href='#add_money' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>" +
-                    "<h3> Amount Frozen:</h3> <p>$" + JSON.parse(localStorage.current_user).balance + " </p>" +
+                    "<h3> Amount Frozen:</h3> <p>$" + frozen + " </p>" +
                     "<h3> Daily Refund: </h3> <p>$" + daily + " </p>"  
                     );
             
@@ -41,18 +45,13 @@ function show_update_guardian() {
 }
 
 
- 
 
-
-
-
-
-function add_money_to_frozen() {
+function add_money_to_frozen(frozen) {
 
     // somehow frozen is not updated in this page
 
     add_money_form.empty().append("<label for='fname'>Current Frozen Balance</label>" + 
-                "<label for='fname'>" + '$ ' + JSON.parse(localStorage.current_user).balance + "</label>"  + 
+                "<label for='fname'>" + '$ ' + JSON.parse(localStorage.current_user).amount_frozen + "</label>"  + 
                 "<label for='fname'>Add to Frozen Amount</label>" + 
                 "<input type='text' name='fname' id='added_amount'>" + 
                 "<label for='fname'>Credit Card Number</label>" + 
@@ -61,7 +60,7 @@ function add_money_to_frozen() {
                 '<input type="date" name="date" id="date" value=""/> ' +
                 '<label for="fname">CSV</label>' + 
                 '<input type="text" name="fname" id="fname"> ' +
-                '<a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" id="add_money_button" onclick="update_frozen();">Add Money</a> '
+                '<button class="ui-btn" onclick="update_frozen()">Add Money</button>'
                     );
 
 }
@@ -69,23 +68,34 @@ function add_money_to_frozen() {
 function update_frozen() {
     var added_f = document.getElementById("added_amount").value;
 
+
+    frozen = JSON.parse(localStorage.current_user).amount_frozen
+
     if( !(isNaN(parseFloat(added_f)))) {
         if ((isFloat(parseFloat(added_f))) | (isInteger(parseFloat(added_f)))) {
             frozen = parseFloat(frozen) + parseFloat(added_f);
+
+            var temp_user = JSON.parse(localStorage.current_user);
+            temp_user.amount_frozen = frozen;
+            localStorage.current_user = JSON.stringify(temp_user)
             // alert(frozen);
             show_money(frozen,daily);
             add_money_to_frozen(frozen);
-
-            temp_user = JSON.parse(localStorage.current_user);
-            temp_user.smoking_target = new_target;
+            $.mobile.pageLoadErrorMessage = "";
+            window.location.replace("index.html#landing")
 
         }
         else {
-            alert("sorry but your input must be a number ")
+            alert("sorry but your input must be a number ");
+            $.mobile.pageLoadErrorMessage = "";
+            window.location.replace("index.html#add_money")
         }   
     }
     else {
-        alert("your input is empty")
+        alert("your input is empty");
+        $.mobile.pageLoadErrorMessage = "";
+        window.location.replace("index.html#add_money")
+
     }
     
     
@@ -96,6 +106,8 @@ function daily_check_in() {
 
     // I shall probably make guardian names into variables
     var guardian_name = ""
+
+    smoking_history = JSON.parse(localStorage.current_user).smoking_history;
     if ((document.getElementById("jason").checked) || (document.getElementById("yoav").checked)) {
         if ((document.getElementById("jason").checked) && (document.getElementById("yoav").checked)) {
             alert("you can only select 1 guardian")
@@ -109,7 +121,18 @@ function daily_check_in() {
             }
             if( !(isNaN(parseFloat(today_count)))) {
                 if ((isFloat(parseFloat(today_count))) || (isInteger(parseFloat(today_count)))) {
-                    smoking_history.push(parseFloat(today_count))
+                    var timeDiff = Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now())
+                    var days_left = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+                    daily = JSON.parse(localStorage.current_user).amount_frozen / days_left
+
+                    var entry = {count: parseFloat(today_count), date: Date(Date.now())}
+                    smoking_history.push(entry)
+                    var temp_user = JSON.parse(localStorage.current_user)
+                    temp_user.smoking_history = smoking_history
+                    if(temp_user.smoking_target < today_count){
+                        temp_user.amount_frozen -= daily
+                    }
+                    localStorage.current_user = JSON.stringify(temp_user)
                     show_target()
 
                     alert_text = "You smoked " + today_count + " cigeratte(s) today. " + "A message of confirmation has been sent to " + guardian_name+ "."

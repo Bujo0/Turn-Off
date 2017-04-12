@@ -1,3 +1,7 @@
+$("#guardian_request").click(function(){
+        alert("your input is empty")
+    });
+
 
 function update_guardian() {
     g_name = document.getElementById("guardian_name").value;
@@ -19,41 +23,21 @@ function update_guardian() {
     }
 }
 
-
 function show_guardian(name) {
     
     guardian.empty().append("<a href='#guardian' class='ui-btn ui-icon-user ui-btn-icon-left' data-transition='flow'>" +
                     "<h3> Guardian:</h3> <p>" + name + "</p>" );
 }
 
-
-
 // Due Date:
-function show_date(date, days_left) {
+function show_date() {
 
-    due_date.append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + date +"</p> <p>"+days_left+" days </p> </a></li>");            
+    due_date.empty().append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + (new Date(JSON.parse(localStorage.current_user).due_date)).toString().substring(0,16) +"</p> <p>"+Math.ceil(Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now()) / (1000 * 3600 * 24))+" days </p> </a></li>");            
 }
 
-function update_charity() {
-    c_name = document.getElementById("charity_name").value;
+function show_charity() {
 
-
-    if(c_name === '') {
-        alert("Please input your charity organization")
-        
-    }
-    else {
-        
-        show_charity(c_name);
-
-    }
-}
-
-
-function show_charity(name) {
-
-    charity.empty().append("<a href='#charity' class='ui-btn ui-icon-user ui-btn-icon-left' data-transition='flow'>" +
-                    "<h3> Charity:</h3> <p>" + name + "</p>" );
+    charity.empty().append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + charity_chosen + "</p> </a></li>");     
 
 }
 
@@ -65,24 +49,30 @@ $(document).ready(function () {
     money = $("#money");
     target = $("#target");
     due_date = $("#due_date");
-    guardian = $("#guardian");
     charity = $("#charity");
+    guardian = $("#guardian");
 
+
+
+    add_guadian = $("#add_guadian");
     name = "None"
     show_guardian(name)
 
-    date = "June 5th"
-    days_left = 50
-    show_date(date, days_left)
+    show_date()
 
-    
-    
-    name = "None"
-    show_charity(name)
+
+    show_charity()
+
+    update_charity_form = $("#update_charity_form");
+    show_update_charity();
 
 });
 
 
+
+
+
+// users logic
 var users = []
 
 if (localStorage.users) {
@@ -97,26 +87,27 @@ if (!localStorage.current_user) {
 }
 
 
-function add_user() {	
+function add_user() { 
 
-	if(document.getElementById("username").value == ""){
-		alert("Empty Username! Try again!")
-		window.location = "index.html#home"
-		return;
-	}
+  if(document.getElementById("username").value == ""){
+    alert("Empty Username! Try again!")
+    window.location = "index.html#home"
+    return;
+  }
 
    if(document.getElementById("password").value == document.getElementById("password2").value){
-   	user = {username: document.getElementById("username").value,
-   			password: document.getElementById("password").value,
-   			smoking_history: [],
-   			guardian: "",
-   			smoking_target: 0,
-   			charity: "",
-   			due_date: new Date("2017-05-15")
-   			}
-   	users.push(user);
-   	console.log(user);
-   	localStorage.users = JSON.stringify(users)
+    user = {username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        smoking_history: [],
+        guardian: "",
+        smoking_target: 0,
+        charity: "",
+        due_date: Date.parse('May 15, 2017'), 
+        amount_frozen: 0
+        }
+    users.push(user);
+    console.log(user);
+    localStorage.users = JSON.stringify(users)
    }
 
 }
@@ -124,18 +115,19 @@ function add_user() {
 
 
 function validate() {
-	
-	var pas = document.getElementById("login_password").value;
-	var username = document.getElementById("login_username").value;
+  
+  var pas = document.getElementById("login_password").value;
+  var username = document.getElementById("login_username").value;
 
-	for (user in users){
+  for (user in users){
 
-		if(users[user].username == username && users[user].password == pas){
-			window.location = "index.html#landing"
-			localStorage.current_user = JSON.stringify(users[user]);
-			return;
-		}
-	}
+    if(users[user].username == username && users[user].password == pas){
+      localStorage.current_user = JSON.stringify(users[user]);
+      window.location = "index.html#landing"
+      window.location.reload()
+      return;
+    }
+  }
 
-	alert("Wrong Username or Password. Try again!");
+  alert("Wrong Username or Password. Try again!");
 }
