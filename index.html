@@ -12,6 +12,7 @@
     <script type="text/javascript" src="add_money.js"></script>
     <script type="text/javascript" src="adjust_target.js"></script>
     <script type="text/javascript" src="charity.js"></script>
+    <script type="text/javascript" src="due_date.js"></script>
 </head>
 <body>
 
@@ -190,16 +191,13 @@
     </div><!-- /header -->
     <div data-role="content">
         
-         <div data-role="main" class="ui-content">
+         <div data-role="main" class="ui-content" id="due_date_form">
             <form method="post" action="/action_page_post.php">
                 <label for="date">Habit End Date</label>
-                <input type="date" name="date" id="date" value=""  />   
+                <input type="date" name="date" id="extended_date" value="date"  />   
+                 <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" onclick="extend_due_date();">Confirm</a>    
             </form>
             <p> Note: You can only extend your end date. Any changes you make are final. </p>
-        </div>
-        
-        <div data-role="main" class="ui-content">
-            <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Send request</a>    
         </div>
      </div>
 </div>
