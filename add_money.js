@@ -48,9 +48,9 @@ function show_update_guardian() {
 
 function add_money_to_frozen(frozen) {
 
-	// somehow frozen is not updated in this page
+    // somehow frozen is not updated in this page
 
-	add_money_form.empty().append("<label for='fname'>Current Frozen Balance</label>" + 
+    add_money_form.empty().append("<label for='fname'>Current Frozen Balance</label>" + 
                 "<label for='fname'>" + '$ ' + JSON.parse(localStorage.current_user).amount_frozen + "</label>"  + 
                 "<label for='fname'>Add to Frozen Amount</label>" + 
                 "<input type='text' name='fname' id='added_amount'>" + 
@@ -66,39 +66,39 @@ function add_money_to_frozen(frozen) {
 }
 
 function update_frozen() {
-	var added_f = document.getElementById("added_amount").value;
+    var added_f = document.getElementById("added_amount").value;
 
 
     frozen = JSON.parse(localStorage.current_user).amount_frozen
 
-	if( !(isNaN(parseFloat(added_f)))) {
-		if ((isFloat(parseFloat(added_f))) | (isInteger(parseFloat(added_f)))) {
-			frozen = parseFloat(frozen) + parseFloat(added_f);
+    if( !(isNaN(parseFloat(added_f)))) {
+        if ((isFloat(parseFloat(added_f))) | (isInteger(parseFloat(added_f)))) {
+            frozen = parseFloat(frozen) + parseFloat(added_f);
 
             var temp_user = JSON.parse(localStorage.current_user);
             temp_user.amount_frozen = frozen;
             localStorage.current_user = JSON.stringify(temp_user)
-			// alert(frozen);
-			show_money(frozen,daily);
+            // alert(frozen);
+            show_money(frozen,daily);
             add_money_to_frozen(frozen);
             $.mobile.pageLoadErrorMessage = "";
             window.location.replace("index.html#landing")
 
-		}
-		else {
-			alert("sorry but your input must be a number ");
+        }
+        else {
+            alert("sorry but your input must be a number ");
             $.mobile.pageLoadErrorMessage = "";
             window.location.replace("index.html#add_money")
-		}	
-	}
-	else {
-		alert("your input is empty");
+        }   
+    }
+    else {
+        alert("your input is empty");
         $.mobile.pageLoadErrorMessage = "";
         window.location.replace("index.html#add_money")
 
-	}
-	
-	
+    }
+    
+    
 }
 
 function daily_check_in() {
@@ -187,6 +187,3 @@ $(document).ready(function () {
     
 
 });
-
-
-			
