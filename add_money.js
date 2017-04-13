@@ -12,10 +12,11 @@ function show_money() {
     var timeDiff = Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now())
     var days_left = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
     daily = Math.round(JSON.parse(localStorage.current_user).amount_frozen / days_left);
-    frozen = JSON.parse(localStorage.current_user).amount_frozen
+    frozen = Math.round(JSON.parse(localStorage.current_user).amount_frozen)
     money.empty().append("<a href='#add_money' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>" +
                     "<h3> Amount Frozen:</h3> <p>$" + frozen + " </p>" +
-                    "<h3> Daily Refund: </h3> <p>$" + daily + " </p>"  
+                    "<h3> Daily Amount: </h3> <p>$" + daily + " </p>"  +
+                    "<h3> Total Amount Lost: </h3> <p>$" + JSON.parse(localStorage.current_user).amount_lost + " </p>" 
                     );
             
 }
@@ -33,7 +34,7 @@ function show_update_guardian() {
               '<label for="yoav">Yoav</label>' + 
               '<input type="checkbox"  id="yoav" value="Yoav">' + 
         '</fieldset>' + 
-        '<a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" onclick="daily_check_in();">Check In</a>' + 
+        '<button data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" onclick="daily_check_in();">Check In</button>' + 
         '</form>');
             
 }
@@ -96,15 +97,19 @@ function update_frozen() {
 }
 
 function daily_check_in() {
+
     var today_count = document.getElementById("today_count").value;
 
     // I shall probably make guardian names into variables
     var guardian_name = ""
 
+
     smoking_history = JSON.parse(localStorage.current_user).smoking_history;
     if ((document.getElementById("jason").checked) || (document.getElementById("yoav").checked)) {
         if ((document.getElementById("jason").checked) && (document.getElementById("yoav").checked)) {
             alert("you can only select 1 guardian")
+            $.mobile.pageLoadErrorMessage = "";
+            window.location.replace("index.html#update_guardian")
         }
         else {
             if (document.getElementById("jason").checked) {
@@ -117,29 +122,37 @@ function daily_check_in() {
                 if ((isFloat(parseFloat(today_count))) || (isInteger(parseFloat(today_count)))) {
                     var timeDiff = Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now())
                     var days_left = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+                    daily = JSON.parse(localStorage.current_user).amount_frozen / days_left
 
-                    daily = JSON.parse(localStorage.current_user).amount_frozen / days_left;
-
-                    var entry = {count: parseFloat(today_count), date: Date(Date.now())}
-                    smoking_history.push(entry)
                     var temp_user = JSON.parse(localStorage.current_user)
+                    var entry = {count: parseFloat(today_count), date: Date(Date.now()), target: temp_user.smoking_target, money: daily}
+                    smoking_history.push(entry)
                     temp_user.smoking_history = smoking_history
                     if(temp_user.smoking_target < today_count){
                         temp_user.amount_frozen -= daily
+                        temp_user.amount_lost += daily
                     }
+                    else {
+                        temp_user.amount_won += daily
+                    }
+
                     localStorage.current_user = JSON.stringify(temp_user)
                     show_target()
 
                     alert_text = "You smoked " + today_count + " cigeratte(s) today. " + "A message of confirmation has been sent to " + guardian_name+ "."
                     alert(alert_text)
+                    window.location.replace("index.html#landing")
 
                 }
                 else {
-                    alert("sorry but your input must be a number ")
+                    $.mobile.pageLoadErrorMessage = "sorry you must input a number";
+                    window.location.replace("index.html#update_guardian")
                 }   
             }
             else {
-                alert("your input is empty")
+                $.mobile.pageLoadErrorMessage = "sorry you must fill in the form";
+                window.location.replace("index.html#update_guardian")
+
             }
 
         }
