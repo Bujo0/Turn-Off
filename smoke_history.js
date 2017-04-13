@@ -6,7 +6,7 @@ function show_history() {
     var hist = temp_user.smoking_history
 
 
-    history123.append("<h3>Your Smoking History:</h3>  <ol>"); 
+    history123.empty().append("<h3>Your Smoking History:</h3>  <ol>"); 
 
 
     for(entry in hist){
