@@ -119,6 +119,12 @@ function validate() {
   var pas = document.getElementById("login_password").value;
   var username = document.getElementById("login_username").value;
 
+  if(username == ""){
+  		alert("You must provide your username! Try again.")
+  		window.location = "index.html#home"
+  		return;
+  }
+
   for (user in users){
 
     if(users[user].username == username && users[user].password == pas){
