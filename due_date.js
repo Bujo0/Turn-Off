@@ -6,9 +6,13 @@ function extend_due_date() {
   if( !(isNaN(temp_user.due_date))) {
   	localStorage.current_user = JSON.stringify(temp_user)
   	show_date()
+  	$.mobile.pageLoadErrorMessage = "";
+    window.location.replace("index.html#landing")
   }
   else {
   	alert("You must input a date")
+  	$.mobile.pageLoadErrorMessage = "";
+    window.location.replace("index.html#due_date")
   }
 
 }
