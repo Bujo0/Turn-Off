@@ -123,13 +123,18 @@ function daily_check_in() {
                     var days_left = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
                     daily = JSON.parse(localStorage.current_user).amount_frozen / days_left
 
-                    var entry = {count: parseFloat(today_count), date: Date(Date.now())}
-                    smoking_history.push(entry)
                     var temp_user = JSON.parse(localStorage.current_user)
+                    var entry = {count: parseFloat(today_count), date: Date(Date.now()), target: temp_user.smoking_target, money: daily}
+                    smoking_history.push(entry)
                     temp_user.smoking_history = smoking_history
                     if(temp_user.smoking_target < today_count){
                         temp_user.amount_frozen -= daily
+                        temp_user.amount_lost += daily
                     }
+                    else {
+                        temp_user.amount_won += daily
+                    }
+
                     localStorage.current_user = JSON.stringify(temp_user)
                     show_target()
 
