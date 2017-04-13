@@ -105,6 +105,14 @@ function daily_check_in() {
 
 
     smoking_history = JSON.parse(localStorage.current_user).smoking_history;
+
+
+
+
+
+
+
+    
     if ((document.getElementById("jason").checked) || (document.getElementById("yoav").checked)) {
         if ((document.getElementById("jason").checked) && (document.getElementById("yoav").checked)) {
             alert("you can only select 1 guardian")

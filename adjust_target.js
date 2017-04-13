@@ -61,25 +61,7 @@ function show_change_target_form() {
 
 }
 
-function update_guardian() {
-    g_name = document.getElementById("guardian_name").value;
-    g_contact = document.getElementById("guardian_contact").value;
 
-
-    if((g_name === '') || (g_contact === '')) {
-        alert("Please input your guardian name and contact information");
-        $.mobile.pageLoadErrorMessage = "";
-        window.location.replace("index.html#guardian")
-        
-    }
-    else {
-        
-        show_guardian(g_name);
-        $.mobile.pageLoadErrorMessage = "";
-        window.location.replace("index.html#landing")
-
-    }
-}
 
 function change_target() {
 

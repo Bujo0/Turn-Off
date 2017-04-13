@@ -15,18 +15,24 @@ function update_guardian() {
         
     }
     else {
+
+        var temp_user = JSON.parse(localStorage.current_user);
+        temp_user.guardian = g_name;
+        temp_user.guardian_lst.push(g_name)
+        localStorage.current_user = JSON.stringify(temp_user)
         
-        show_guardian(g_name);
+        show_guardian();
         $.mobile.pageLoadErrorMessage = "";
         window.location.replace("index.html#landing")
 
     }
 }
 
-function show_guardian(name) {
+function show_guardian() {
+  console.log(JSON.parse(localStorage.current_user));
     
     guardian.empty().append("<a href='#guardian' class='ui-btn ui-icon-user ui-btn-icon-left' data-transition='flow'>" +
-                    "<h3> Guardian:</h3> <p>" + name + "</p>" );
+                    "<h3> Guardian:</h3> <p>" + JSON.parse(localStorage.current_user).guardian + "</p>" );
 }
 
 // Due Date:
@@ -100,6 +106,7 @@ function add_user() {
         password: document.getElementById("password").value,
         smoking_history: [],
         guardian: "",
+        guardian_lst: [],
         smoking_target: 0,
         charity: "",
         due_date: Date.parse('May 15, 2017'), 
