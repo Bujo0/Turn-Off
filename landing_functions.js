@@ -1,5 +1,3 @@
-
-
 $("#guardian_request").click(function(){
         alert("your input is empty")
     });
@@ -89,27 +87,27 @@ if (!localStorage.current_user) {
 }
 
 
-function add_user() {	
+function add_user() { 
 
-	if(document.getElementById("username").value == ""){
-		alert("Empty Username! Try again!")
-		window.location = "index.html#home"
-		return;
-	}
+  if(document.getElementById("username").value == ""){
+    alert("Empty Username! Try again!")
+    window.location = "index.html#home"
+    return;
+  }
 
    if(document.getElementById("password").value == document.getElementById("password2").value){
-   	user = {username: document.getElementById("username").value,
-   			password: document.getElementById("password").value,
-   			smoking_history: [],
-   			guardian: "",
-   			smoking_target: 0,
-   			charity: "",
-   			due_date: Date.parse('May 15, 2017'), 
-   			amount_frozen: 0
-   			}
-   	users.push(user);
-   	console.log(user);
-   	localStorage.users = JSON.stringify(users)
+    user = {username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        smoking_history: [],
+        guardian: "",
+        smoking_target: 0,
+        charity: "",
+        due_date: Date.parse('May 15, 2017'), 
+        amount_frozen: 0
+        }
+    users.push(user);
+    console.log(user);
+    localStorage.users = JSON.stringify(users)
    }
 
 }
@@ -117,19 +115,25 @@ function add_user() {
 
 
 function validate() {
-	
-	var pas = document.getElementById("login_password").value;
-	var username = document.getElementById("login_username").value;
+  
+  var pas = document.getElementById("login_password").value;
+  var username = document.getElementById("login_username").value;
 
-	for (user in users){
+  if(username == ""){
+  		alert("You must provide your username! Try again.")
+  		window.location = "index.html#home"
+  		return;
+  }
 
-		if(users[user].username == username && users[user].password == pas){
-			localStorage.current_user = JSON.stringify(users[user]);
-			window.location = "index.html#landing"
-			window.location.reload()
-			return;
-		}
-	}
+  for (user in users){
 
-	alert("Wrong Username or Password. Try again!");
+    if(users[user].username == username && users[user].password == pas){
+      localStorage.current_user = JSON.stringify(users[user]);
+      window.location = "index.html#landing"
+      window.location.reload()
+      return;
+    }
+  }
+
+  alert("Wrong Username or Password. Try again!");
 }
