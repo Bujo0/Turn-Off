@@ -1,9 +1,3 @@
-var frozen = 0;
-var daily = 10;
-
-
-
-
 function isFloat(n) {
     return n === +n && n !== (n|0);
 }
@@ -13,11 +7,11 @@ function isInteger(n) {
 
 
 // ? TODO: make sure the input is not empty and must be aan integer
-function show_money(frozen, daily) {
+function show_money() {
 
     var timeDiff = Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now())
     var days_left = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-    daily = JSON.parse(localStorage.current_user).amount_frozen / days_left
+    daily = Math.round(JSON.parse(localStorage.current_user).amount_frozen / days_left);
     frozen = JSON.parse(localStorage.current_user).amount_frozen
     money.empty().append("<a href='#add_money' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>" +
                     "<h3> Amount Frozen:</h3> <p>$" + frozen + " </p>" +
@@ -123,7 +117,8 @@ function daily_check_in() {
                 if ((isFloat(parseFloat(today_count))) || (isInteger(parseFloat(today_count)))) {
                     var timeDiff = Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now())
                     var days_left = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-                    daily = JSON.parse(localStorage.current_user).amount_frozen / days_left
+
+                    daily = JSON.parse(localStorage.current_user).amount_frozen / days_left;
 
                     var entry = {count: parseFloat(today_count), date: Date(Date.now())}
                     smoking_history.push(entry)
@@ -176,7 +171,7 @@ $(document).ready(function () {
 
     update_guardian_form = $("#update_guardian_form");
 
-    show_money(frozen, daily);
+    show_money();
 
     add_money_to_frozen(frozen);
 
