@@ -10,7 +10,14 @@ function show_history() {
 
 
     for(entry in hist){
-    	history123.append("<li> On " + Date(hist[entry].date).substring(0, 16) + " you smoked " + hist[entry].count +" cigarettes.</li>");
+    	history123.append("<li> On " + Date(hist[entry].date).substring(0, 16) + " you smoked " + hist[entry].count +" cigarettes. Your target for the day was " + hist[entry].target);
+
+        if(hist[entry].target >= hist[entry].count){
+            history123.append(" and you won " + hist[entry].money + " dollars.</li>");
+        }
+        else {
+            history123.append(" and you lost " + hist[entry].money + " dollars.</li>");
+        }
     }
 
     history123.append("</ol>"); 

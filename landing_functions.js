@@ -103,7 +103,9 @@ function add_user() {
         smoking_target: 0,
         charity: "",
         due_date: Date.parse('May 15, 2017'), 
-        amount_frozen: 0
+        amount_frozen: 0,
+        amount_lost: 0,
+        amount_won: 0
         }
     users.push(user);
     console.log(user);
