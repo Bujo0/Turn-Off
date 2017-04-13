@@ -138,6 +138,7 @@ function daily_check_in() {
         }
         else {
             $.mobile.pageLoadErrorMessage = "sorry you must input a number";
+            alert("sorry you must input a number")
             window.location.replace("index.html#update_guardian")
         }   
     }
