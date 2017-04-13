@@ -149,6 +149,8 @@ function daily_check_in() {
 
                     alert_text = "You smoked " + today_count + " cigeratte(s) today. " + "A message of confirmation has been sent to " + guardian_name+ "."
                     alert(alert_text)
+
+                    window.location.reload();
                     window.location.replace("index.html#landing")
 
                 }

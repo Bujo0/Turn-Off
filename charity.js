@@ -6,13 +6,27 @@ var charity_chosen = "";
 function update_charity() {
 
 	var charity_lst = document.getElementsByName('charity');
+  var checked = false;
 	for(var i = 0; i < charity_lst.length; i++){
 	    if(charity_lst[i].checked){
-	        charity_chosen = charity_lst[i].value;
+          temp_user = JSON.parse(localStorage.current_user);
+          temp_user.charity = charity_lst[i].value;
+	        localStorage.current_user = JSON.stringify(temp_user);
 	        show_update_charity();
 	        show_charity();
+          checked = true;
 	    }
+
 	}
+  if (checked == false){
+        alert("Please input a new target");
+        $.mobile.pageLoadErrorMessage = "";
+        window.location.replace("index.html#charities")
+  }
+
+  else{
+    window.location.replace("index.html#landing")
+  }
 
 }
 
@@ -31,7 +45,7 @@ function show_update_charity() {
               '<label for="UNICEF">UNICEF</label>' + 
               '<input type="radio"  id="UNICEF" value="UNICEF" name="charity">' + 
         '</fieldset>' + 
-        '<a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" onclick="update_charity();">Update</a>' + 
+        '<button data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" onclick="update_charity();">Update</button>' + 
         '</form>');
             
 }

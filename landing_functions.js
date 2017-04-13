@@ -43,7 +43,7 @@ function show_date() {
 
 function show_charity() {
 
-    charity.empty().append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + charity_chosen + "</p> </a></li>");     
+    charity.empty().append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + JSON.parse(localStorage.current_user).charity + "</p> </a></li>");     
 
 }
 
@@ -70,7 +70,8 @@ $(document).ready(function () {
     show_charity()
 
     update_charity_form = $("#update_charity_form");
-    show_update_charity();
+
+    show_update_charity()
 
 });
 

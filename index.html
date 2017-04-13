@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--get jquery mobile libraries and css-->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="landing_functions.js"></script>
@@ -20,13 +21,13 @@
 
 
 <div data-role="page" id="home">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
     </div><!-- /header -->
 
     <div data-role="content">
         <!-- <img src="logo.png"  style="width:100%;margin:0 auto;">  logo for later -->
-        <h1>Log In</h1>
 
+        <img id="Logo" src="logo.png" style="display: block; margin: auto; width: 80%;"/>
         <form action="/action_page.php">
           Username:<br>
           <input type="text" id="login_username"><br>
@@ -42,11 +43,11 @@
 </div><!-- /page -->
 
 <div data-role="page" id="signup">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
     </div><!-- /header -->
 
     <div data-role="content">
-        <h1>Sign Up</h1>   
+        <img id="Logo" src="logo.png" style="display: block; margin: auto; width: 80%;"/>  
         <!-- <img src="logo.png"  style="width:100%;margin:0 auto;">  logo for later -->
         <form action="/action_page.php">
           Username:<br>
@@ -66,7 +67,7 @@
 
 
 <div data-role="page" id="landing">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <a href="#home" class="ui-btn-left" >Log Out</a>
         <h1>Home</h1>
         <a href="#update_guardian" class="ui-btn-right">Status Update </a>
@@ -75,11 +76,9 @@
     <div data-role="content">
         <ul data-inset="true" data-role="listview" data-input="#filterBasic-input">
             <li id="money"/>
-
             <li id="due_date"/>
             <li id="target"/>
-            <li id="guardian"/>
-            
+            <li id="guardian"/>            
             <li id="charity"/>
         </ul>
     </div><!-- /content -->
@@ -99,7 +98,7 @@
 </div><!-- /page -->
 
 <div data-role="page" id="add_money">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <h1>Add Money</h1>
         <a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
@@ -137,7 +136,7 @@
 </div>
 
 <div data-role="page" id="smoke_history">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <h1>Smoking History</h1>
         <a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
@@ -162,7 +161,7 @@
 </div>
 
 <div data-role="page" id="guardian">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <h1>Contact a Guardian</h1>
         <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
@@ -185,7 +184,7 @@
 </div>
 
 <div data-role="page" id="charities">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <h1>Select a Charity</h1>
         <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
@@ -198,7 +197,7 @@
 </div>
 
 <div data-role="page" id="new_target">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <h1>Smoking Target</h1>
         <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
@@ -216,7 +215,7 @@
 </div>
 
 <div data-role="page" id="due_date">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <h1>Change the end date of your habit</h1>
         <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
@@ -234,7 +233,7 @@
 </div>
 
 <div data-role="page" id="update_guardian">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <h1>Smoking Update</h1>
         <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
@@ -244,7 +243,7 @@
 </div>
 
 <div data-role="page" id="help">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <h1>Help</h1>
         <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
     </div><!-- /header -->
@@ -254,8 +253,8 @@
         <h2> Contact </h2>
         <p> Filip Bujaroski: fbujaroski@college.harvard.edu </p> <br>
         <p> Yoav Shaked: yshaked@college.harvard.edu </p> <br>
-        <p> Kally Wu: </p> <br>
-        <p> Jason Zhao: </p> <br> 
+        <p> Kally Wu: wwu1@gsd.harvard.edu </p> <br>
+        <p> Jason Zhao: jiachengzhao@college.harvard.edu </p> <br> 
 
     <div data-role="footer" data-iconpos="top" data-position="fixed">
         <div data-role="navbar">
