@@ -6,24 +6,28 @@ function show_history() {
     var hist = temp_user.smoking_history
 
 
-    history123.empty().append("<h3>Your Smoking History:</h3>  <ol>"); 
+    history123.empty().append("<h3>Your Smoking History:</h3>  <table class='fixed'"); 
 
+    history123.empty().append("<tr> <th> Date </th> <th> Cigarettes </th> <th> Target</th> <th> Won (Lost) </th> </tr>"); 
 
     for(entry in hist){
-    	history123.append("<li> On " + Date(hist[entry].date).substring(0, 16) + " you smoked " + hist[entry].count +" cigarettes. Your target for the day was " + hist[entry].target);
+        var app = "";
+
+        app+=("<tr> <th>" + Date(hist[entry].date).substring(0, 16) +"</th> <th>" + hist[entry].count +" </th> <th>" + hist[entry].target + "</th>");
 
         if(hist[entry].target >= hist[entry].count){
-            history123.append(" and you won " + hist[entry].money + " dollars.</li>");
+            app+=("<th>" + (Math.round(hist[entry].money)*100)/100 + "</th> </tr>");
         }
         else {
-            history123.append(" and you lost " + hist[entry].money + " dollars.</li>");
+            app+=(" <th> (" + (Math.round(hist[entry].money)*100)/100 + ") </th> </tr>");
         }
+        history123.append(app);
     }
 
-    history123.append("</ol>"); 
+    history123.append("</table>")
 
-    if(hist.length == 0){
-    	 history123.append("<h2>You have no entries!</h2>"); 
+     if(hist.length == 0){
+         history123.append("<h2>You have no entries!</h2>"); 
     }
 }
 
