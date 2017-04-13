@@ -39,10 +39,21 @@ function show_target() {
 
 	avg_smoked = list_average(list_daily_cig);
 
-    target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>"+
-                        "<h3> Target cigarettes:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
-                        "<h3> Average smoked per day: </h3> <p>" + avg_smoked + " cigarettes</p>");
+	if (isNaN(parseFloat(avg_smoked))) {
 
+		target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>"+
+                        "<h3> Target cigarettes:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
+                        "<h3> Average smoked per day: </h3> <p>0 cigarettes</p>");
+
+	}
+
+	else{
+
+	    target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>"+
+	                        "<h3> Target cigarettes:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
+	                        "<h3> Average smoked per day: </h3> <p>" + avg_smoked + " cigarettes</p>");
+
+    }
     console.log('station 2')
 }
 
