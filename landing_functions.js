@@ -38,7 +38,7 @@ function show_guardian() {
 // Due Date:
 function show_date() {
 
-    due_date.empty().append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + (new Date(JSON.parse(localStorage.current_user).due_date)).toString().substring(0,16) +"</p> <p>"+Math.ceil(Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now()) / (1000 * 3600 * 24))+" days </p> </a></li>");            
+    due_date.empty().append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + (new Date(JSON.parse(localStorage.current_user).due_date)).toString().substring(0,16) +"</p> <p>"+Math.ceil(Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now()) / (1000 * 3600 * 24))+" days </p> <p id="+ "progressbar"+ "></p></a></li>");            
 }
 
 function show_charity() {
@@ -71,7 +71,11 @@ $(document).ready(function () {
 
     update_charity_form = $("#update_charity_form");
 
+    
+
     show_update_charity()
+
+    // show_graph();
 
 });
 

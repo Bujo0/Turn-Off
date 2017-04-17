@@ -162,7 +162,10 @@
         <div id="graph" style="width: 550px;height:550px;"></div>
         <script type="text/javascript">
             var graph = document.getElementById('graph');
+
             s_history = [0,0,0,0,0,0,0]
+
+
             if ((JSON.parse(localStorage.current_user).smoking_history).length != 0) {
              for (i in JSON.parse(localStorage.current_user).smoking_history) {
                  s_history[i] = JSON.parse(localStorage.current_user).smoking_history[i].count
@@ -171,6 +174,8 @@
                  }
              }
             };
+
+
             var layout = {
               title: 'Your Smoking History For The Past 7 Days',
               xaxis: {
@@ -190,6 +195,8 @@
                 }
               }
             };
+
+
             Plotly.newPlot( graph, [{
                 x: [1, 2, 3, 4, 5, 6, 7],
                 y:  s_history}] , layout); 
