@@ -1,3 +1,4 @@
+$('head').append('<link rel="stylesheet" type="text/css" href="style.css">');
 
 function extend_due_date() {
 

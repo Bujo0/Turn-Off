@@ -7,6 +7,7 @@
     <!--get jquery mobile libraries and css-->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="landing_functions.js"></script>
@@ -14,7 +15,20 @@
     <script type="text/javascript" src="adjust_target.js"></script>
     <script type="text/javascript" src="charity.js"></script>
     <script type="text/javascript" src="smoke_history.js"></script>
+    <script type="text/javascript" src="due_date.js"></script> 
+    <script type="text/javascript" src="plotly-latest.min.js"></script> 
+    <!-- <script type="text/javascript" src="graph.js"></script>  -->
     <script type="text/javascript" src="due_date.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--pulled from JQuery website - https://jqueryui.com/progressbar/ -->
+    <script>
+    $( function() {
+    $( "#progressbar" ).progressbar({
+      value: 37
+    });
+    } );
+  </script>
 </head>
 <body>
 
@@ -143,6 +157,43 @@
     <div data-role="content" >    
         <div id="smokes">
         </div>
+        <br>
+        <br>
+        <div id="graph" style="width: 550px;height:550px;"></div>
+        <script type="text/javascript">
+            var graph = document.getElementById('graph');
+            s_history = [0,0,0,0,0,0,0]
+            if ((JSON.parse(localStorage.current_user).smoking_history).length != 0) {
+             for (i in JSON.parse(localStorage.current_user).smoking_history) {
+                 s_history[i] = JSON.parse(localStorage.current_user).smoking_history[i].count
+                 if (i >= 7) {
+                     break;
+                 }
+             }
+            };
+            var layout = {
+              title: 'Your Smoking History For The Past 7 Days',
+              xaxis: {
+                title: 'Past seven days',
+                titlefont: {
+                  family: 'Courier New, monospace',
+                  size: 18,
+                  color: '#7f7f7f'
+                }
+              },
+              yaxis: {
+                title: 'Numebr of cigarettes smoked',
+                titlefont: {
+                  family: 'Courier New, monospace',
+                  size: 18,
+                  color: '#7f7f7f'
+                }
+              }
+            };
+            Plotly.newPlot( graph, [{
+                x: [1, 2, 3, 4, 5, 6, 7],
+                y:  s_history}] , layout); 
+        </script>
             
     </div>  
 
@@ -255,6 +306,12 @@
         <p> Yoav Shaked: yshaked@college.harvard.edu </p> <br>
         <p> Kally Wu: wwu1@gsd.harvard.edu </p> <br>
         <p> Jason Zhao: jiachengzhao@college.harvard.edu </p> <br> 
+
+        <h2> Additional resource to help you decrease your smoking: </h2>
+        <a href="http://www.lung.org/stop-smoking/i-want-to-quit/how-to-quit-smoking.html"> American Lung Association </a><br>
+        <a href="http://www.webmd.com/smoking-cessation/quit-smoking#1"> WebMD </a><br>
+        <a href="https://www.smokefree.gov/">Smokefree.gov</a><br>
+        <a href="https://quitsmokingcommunity.org"> Quit Smoking Community </a><br>
 
     <div data-role="footer" data-iconpos="top" data-position="fixed">
         <div data-role="navbar">
