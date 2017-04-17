@@ -71,7 +71,11 @@ $(document).ready(function () {
 
     update_charity_form = $("#update_charity_form");
 
+    
+
     show_update_charity()
+
+    // show_graph();
 
 });
 

@@ -14,7 +14,9 @@
     <script type="text/javascript" src="adjust_target.js"></script>
     <script type="text/javascript" src="charity.js"></script>
     <script type="text/javascript" src="smoke_history.js"></script>
-    <script type="text/javascript" src="due_date.js"></script>
+    <script type="text/javascript" src="due_date.js"></script> 
+    <script type="text/javascript" src="plotly-latest.min.js"></script> 
+    <!-- <script type="text/javascript" src="graph.js"></script>  -->
 </head>
 <body>
 
@@ -143,6 +145,48 @@
     <div data-role="content" >    
         <div id="smokes">
         </div>
+        <br>
+        <br>
+        <div id="graph" style="width: 550px;height:550px;"></div>
+        <script type="text/javascript">
+            var graph = document.getElementById('graph');
+
+            s_history = [0,0,0,0,0,0,0]
+
+            if ((JSON.parse(localStorage.current_user).smoking_history).length != 0) {
+             for (i in JSON.parse(localStorage.current_user).smoking_history) {
+                 s_history[i] = JSON.parse(localStorage.current_user).smoking_history[i].count
+                 if (i >= 7) {
+                     break;
+                 }
+             }
+            };
+
+            var layout = {
+              title: 'Your Smoking History For The Past 7 Days',
+              xaxis: {
+                title: 'Past seven days',
+                titlefont: {
+                  family: 'Courier New, monospace',
+                  size: 18,
+                  color: '#7f7f7f'
+                }
+              },
+              yaxis: {
+                title: 'Numebr of cigarettes smoked',
+                titlefont: {
+                  family: 'Courier New, monospace',
+                  size: 18,
+                  color: '#7f7f7f'
+                }
+              }
+            };
+
+
+            Plotly.newPlot( graph, [{
+                x: [1, 2, 3, 4, 5, 6, 7],
+                y:  s_history}] , layout); 
+        </script>
             
     </div>  
 
