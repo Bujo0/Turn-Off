@@ -47,6 +47,14 @@ function show_charity() {
 
 }
 
+function show_help() {
+
+    help2.empty().append("<a href='#help' data-transition='flow'>Help</a></li>");     
+
+}
+
+
+
 
 
 // enabling adding notes
@@ -57,6 +65,7 @@ $(document).ready(function () {
     due_date = $("#due_date");
     charity = $("#charity");
     guardian = $("#guardian");
+    help2 = $("#help2");
 
 
 
@@ -71,7 +80,7 @@ $(document).ready(function () {
 
     update_charity_form = $("#update_charity_form");
 
-    
+    show_help()
 
     show_update_charity()
 
