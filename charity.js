@@ -1,4 +1,3 @@
-$('head').append('<link rel="stylesheet" type="text/css" href="style.css">');
 var charity_chosen = "";
 
 function update_charity() {
