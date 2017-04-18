@@ -15,9 +15,9 @@ function show_money() {
     frozen = Math.round(JSON.parse(localStorage.current_user).amount_frozen)
     money.empty().append(
                     "<a href='#add_money' data-transition='flow'>" +
-                    "<h3> Total Amount Frozen:</h3> <p>$" + frozen + " </p>" +
-                    "<h3> Total Amount Gained: </h3> <p>$" + daily + " </p>"  +
-                    "<h3> Total Amount Lost: </h3> <p>$" + JSON.parse(localStorage.current_user).amount_lost + " </p>" 
+                    "<h3> Money Frozen:</h3> <p>$" + frozen + " </p>" +
+                    "<h3> Money Gained: </h3> <p>$" + daily + " </p>"  +
+                    "<h3> Money Lost: </h3> <p>$" + JSON.parse(localStorage.current_user).amount_lost + " </p>" 
                     );
             
 }
