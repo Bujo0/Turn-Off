@@ -31,19 +31,19 @@ function update_guardian() {
 function show_guardian() {
   console.log(JSON.parse(localStorage.current_user));
     
-    guardian.empty().append("<a href='#guardian' class='ui-btn ui-icon-user ui-btn-icon-left' data-transition='flow'>" +
+    guardian.empty().append("<a href='#guardian' data-transition='flow'>" +
                     "<h3> Guardian:</h3> <p>" + JSON.parse(localStorage.current_user).guardian + "</p>" );
 }
 
 // Due Date:
 function show_date() {
 
-    due_date.empty().append("<a href='#due_date' class='ui-btn ui-icon-edit ui-btn-icon-left' data-transition='flow'>Due Date: <p>" + (new Date(JSON.parse(localStorage.current_user).due_date)).toString().substring(0,16) +"</p> <p>"+Math.ceil(Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now()) / (1000 * 3600 * 24))+" days </p> <p id="+ "progressbar"+ "></p></a></li>");            
+    due_date.empty().append("<a href='#due_date' data-transition='flow'>Due Date: <p>" + (new Date(JSON.parse(localStorage.current_user).due_date)).toString().substring(0,16) +"</p> <p>"+Math.ceil(Math.abs(JSON.parse(localStorage.current_user).due_date - Date.now()) / (1000 * 3600 * 24))+" days </p> <p id="+ "progressbar"+ "></p></a></li>");            
 }
 
 function show_charity() {
 
-    charity.empty().append("<a href='#charities' class='ui-btn ui-icon-mail ui-btn-icon-left' data-transition='flow'>Charity:<p>" + JSON.parse(localStorage.current_user).charity + "</p> </a></li>");     
+    charity.empty().append("<a href='#charities' data-transition='flow'>Charity:<p>" + JSON.parse(localStorage.current_user).charity + "</p> </a></li>");     
 
 }
 

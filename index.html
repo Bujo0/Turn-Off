@@ -35,7 +35,7 @@
 
 
 <div data-role="page" id="home">
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed" >
     </div><!-- /header -->
 
     <div data-role="content">
@@ -47,8 +47,8 @@
           <input type="text" id="login_username"><br>
           Password:<br>
           <input type="password" id="login_password"><br><br>
-          <a class="ui-btn" onclick="validate()">Log In</a>
-          <a href="#signup" class="ui-btn">Sign Up</a>
+          <a class="ui-btn ui-corner-all" onclick="validate()">Log In</a>
+          <a href="#signup" class="ui-btn ui-corner-all">Sign Up</a>
         </form>
 
         <!-- TODO 1: make these links appear as mobile buttons using the ui-btn class -->
@@ -61,17 +61,17 @@
     </div><!-- /header -->
 
     <div data-role="content">
-        <img id="Logo" src="logo.png" style="display: block; margin: auto; width: 80%;"/>  
+        <img id="Logo" src="logo.png" style="display: block; margin: auto; width: 90%;"/>  
         <!-- <img src="logo.png"  style="width:100%;margin:0 auto;">  logo for later -->
         <form action="/action_page.php">
           Username:<br>
           <input type="text" id="username"><br>
           Password:<br>
           <input type="password" id="password"><br><br>
-          Repeat Your Password:<br>
+          Retype Your Password:<br>
           <input type="password" id="password2"><br><br>
-          <a href="#home" class="ui-btn" onclick="add_user()">Sign Up</a>
-          <a href="#home" class="ui-btn">Back</a>
+          <a href="#home" class="ui-btn ui-corner-all" onclick="add_user()">Sign Up</a>
+          <a href="#home" class="ui-btn ui-corner-all">Back</a>
         </form>
 
     </div><!-- /content -->
@@ -81,13 +81,13 @@
 
 
 <div data-role="page" id="landing">
-    <div data-role="header" data-position="fixed">
-        <a href="#home" class="ui-btn-left" >Log Out</a>
-        <h1>Home</h1>
-        <a href="#update_guardian" class="ui-btn-right">Status Update </a>
+    <div data-role="header" data-position="fixed"  style="background: #40adf2" >
+        <a href="#home" class="ui-btn-left ui-corner-all" >Log Out</a>
+        <h1> Home </h1>
+        <a href="#update_guardian" class="ui-btn-right ui-corner-all">Update</a>
     </div><!-- /header -->
 
-    <div data-role="content">
+    <div data-role="content" style="background: #eae9e9">
         <ul data-inset="true" data-role="listview" data-input="#filterBasic-input">
             <li id="money"/>
             <li id="due_date"/>
@@ -97,11 +97,11 @@
         </ul>
     </div><!-- /content -->
 
-    <div data-role="footer" data-position="fixed" data-iconpos="top">
+    <div data-role="footer" data-position="fixed" data-iconpos="top" >
         <div data-role="navbar">
             <ul>
                 
-                <li><a href="#landing" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#landing" data-icon="home" class="ui-btn-active ui-state-persist ui-corner-all">Home</a></li>
                 <li><a href="#add_money" data-icon ="plus" >Add Money</a></li>   
                 <li><a href="#smoke_history" data-icon ="grid" onclick="show_history()">History</a></li>   
                 <li><a href="#help" data-icon="info">Help</a></li>
@@ -112,13 +112,13 @@
 </div><!-- /page -->
 
 <div data-role="page" id="add_money">
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed"  style="background: #40adf2">
         <h1>Add Money</h1>
-        <a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+        <a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
     </div><!-- /header -->
     <div data-role="content" >    
         <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php" id = "add_money_form">
+            <form method="post" action="/action_page_post.php" id = "add_money_form" >
 <!--                <label for="fname">Current Frozen Balance</label>
                 <label for="fname">{$frozen};%</label> -->
 <!--                 <label for="fname">Add to Frozen Amount</label>
@@ -140,7 +140,7 @@
             <ul>
                 
                 <li><a href="#landing"  data-icon="home">Home</a></li>
-                <li><a href="#add_money" data-icon="plus" class="ui-btn-active ui-state-persist">Add Money</a></li>
+                <li><a href="#add_money" data-icon="plus" class="ui-btn-active ui-state-persist ui-corner-all">Add Money</a></li>
                 <li><a href="#smoke_history" data-icon ="grid" onclick="show_history()">History</a></li>
                 <li><a href="#help"  data-icon="info">Help</a></li>
             </ul>
@@ -150,9 +150,9 @@
 </div>
 
 <div data-role="page" id="smoke_history">
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed" style="background: #40adf2">
         <h1>Smoking History</h1>
-        <a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+        <a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
     </div><!-- /header -->
     <div data-role="content" >    
         <div id="smokes">
@@ -210,7 +210,7 @@
                 
                 <li><a href="#landing" data-icon="home" >Home</a></li>
                 <li><a href="#add_money" data-icon="plus" >Add Money</a></li>
-                <li><a href="#smoke_history" data-icon ="grid" class="ui-btn-active ui-state-persist" onclick="show_history()">History</a></li>
+                <li><a href="#smoke_history" data-icon ="grid" class="ui-btn-active ui-state-persist ui-corner-all" onclick="show_history()">History</a></li>
                 <li><a href="#help" data-icon="info" >Help</a></li>
             </ul>
         </div>
@@ -219,13 +219,13 @@
 </div>
 
 <div data-role="page" id="guardian">
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed" style="background: #40adf2">
         <h1>Contact a Guardian</h1>
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
     </div><!-- /header -->
-    <div data-role="content">
+    <div data-role="content" >
         
-        <div data-role="main" class="ui-content">
+        <div data-role="main" class="ui-content" >
             <form method="post" action="/action_page_post.php" >
                 <label for="fname">Friend's Name</label>                
                 <input type="text" name="fname" id="guardian_name">
@@ -233,7 +233,7 @@
                 <input type="text" name="fname" id="guardian_contact">
                 <label for="date">Note</label>
                 <input type="text" name="fname" id="guadian_note">
-                <button class="ui-btn" onclick="update_guardian();">Send request</button>
+                <button class="ui-btn ui-corner-all" onclick="update_guardian();">Send request</button>
             </form>
         </div>
         
@@ -242,9 +242,9 @@
 </div>
 
 <div data-role="page" id="charities">
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed" style="background: #40adf2">
         <h1>Select a Charity</h1>
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
     </div><!-- /header -->
         
     <div data-role="content" id = "update_charity_form">
@@ -255,9 +255,9 @@
 </div>
 
 <div data-role="page" id="new_target">
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed" style="background: #40adf2">
         <h1>Smoking Target</h1>
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
     </div><!-- /header -->
     <div data-role="content" id="">
         
@@ -273,17 +273,17 @@
 </div>
 
 <div data-role="page" id="due_date">
-    <div data-role="header" data-position="fixed">
-        <h1>Change the end date of your habit</h1>
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+    <div data-role="header" data-position="fixed" style="background: #40adf2">
+        <h1>Change End Date</h1>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
     </div><!-- /header -->
     <div data-role="content">
         
          <div data-role="main" class="ui-content" id="due_date_form">
             <form method="post" action="/action_page_post.php">
                 <label for="date">Habit End Date</label>
-                <input type="date" name="date" id="extended_date" value="date"  />   
-                 <a href="#team" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" onclick="extend_due_date();">Confirm</a>    
+                <input type="date" name="date" id="extended_date" value="date" />   
+                 <a href="#team" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all" onclick="extend_due_date();">Confirm</a>    
             </form>
             <p> Note: You can only extend your end date. Any changes you make are final. </p>
         </div>
@@ -291,9 +291,9 @@
 </div>
 
 <div data-role="page" id="update_guardian">
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed" style="background: #40adf2">
         <h1>Smoking Update</h1>
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
     </div><!-- /header -->
     <div data-role="content" id = "update_guardian_form"/></div>
 
@@ -301,24 +301,26 @@
 </div>
 
 <div data-role="page" id="help">
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed" style="background: #40adf2">
         <h1>Help</h1>
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn">Back</a>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
     </div><!-- /header -->
     <div data-role="content">
-        <h3>Each cigarette decreases your life by an average of 8 minutes. We are here to help you quit! </h3>
+        <h2>Each cigarette decreases your life by an average of 8 minutes. We are here to help you quit! </h2>
 
-        <h2> Contact </h2>
-        <p> Filip Bujaroski: fbujaroski@college.harvard.edu </p> <br>
-        <p> Yoav Shaked: yshaked@college.harvard.edu </p> <br>
-        <p> Kally Wu: wwu1@gsd.harvard.edu </p> <br>
-        <p> Jason Zhao: jiachengzhao@college.harvard.edu </p> <br> 
+        <h3> Filip Bujaroski: fbujaroski@college.harvard.edu </h3> <br>
+        <h3> Yoav Shaked: yshaked@college.harvard.edu </h3> <br>
+        <h3> Kally Wu: wwu1@gsd.harvard.edu </h3> <br>
+        <h3> Jason Zhao: jiachengzhao@college.harvard.edu </h3> <br> 
 
-        <h2> Additional resource to help you decrease your smoking: </h2>
-        <a href="http://www.lung.org/stop-smoking/i-want-to-quit/how-to-quit-smoking.html"> American Lung Association </a><br>
-        <a href="http://www.webmd.com/smoking-cessation/quit-smoking#1"> WebMD </a><br>
-        <a href="https://www.smokefree.gov/">Smokefree.gov</a><br>
-        <a href="https://quitsmokingcommunity.org"> Quit Smoking Community </a><br>
+        <h3> Additional resource to help you decrease your smoking: </h3>
+        <ul>
+
+        <li><a href="http://www.lung.org/stop-smoking/i-want-to-quit/how-to-quit-smoking.html"> <h3> American Lung Association </h3> </a><br></li>
+        <li><a href="http://www.webmd.com/smoking-cessation/quit-smoking#1"> <h3>WebMD </h3></a><br></li>
+        <li><a href="https://www.smokefree.gov/"><h3>Smokefree.gov</h3></a><br></li>
+        <li><a href="https://quitsmokingcommunity.org"> <h3>Quit Smoking Community</h3></a><br></li>
+        </ul>
 
     <div data-role="footer" data-iconpos="top" data-position="fixed">
         <div data-role="navbar">

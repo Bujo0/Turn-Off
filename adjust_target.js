@@ -41,7 +41,7 @@ function show_target() {
 
 	if (isNaN(parseFloat(avg_smoked))) {
 
-		target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>"+
+		target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' data-transition='flow'>"+
                         "<h3> Target cigarettes:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
                         "<h3> Average smoked per day: </h3> <p>0 cigarettes</p>");
 
@@ -49,7 +49,7 @@ function show_target() {
 
 	else{
 
-	    target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' class='ui-btn ui-icon-lock ui-btn-icon-left' data-transition='flow'>"+
+	    target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' data-transition='flow'>"+
 	                        "<h3> Target cigarettes:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
 	                        "<h3> Average smoked per day: </h3> <p>" + avg_smoked + " cigarettes</p>");
 

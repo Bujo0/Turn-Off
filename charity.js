@@ -42,7 +42,7 @@ function show_update_charity() {
               '<label for="UNICEF">UNICEF</label>' + 
               '<input type="radio"  id="UNICEF" value="UNICEF" name="charity">' + 
         '</fieldset>' + 
-        '<button data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" onclick="update_charity();">Update</button>' + 
+        '<button data-rel="back" data-icon="money" class="ui-btn" onclick="update_charity();">Update</button>' + 
         '</form>');
             
 }
