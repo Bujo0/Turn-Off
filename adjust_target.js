@@ -67,7 +67,12 @@ function show_change_target_form() {
                 "<h3>" + JSON.parse(localStorage.current_user).smoking_target + "</h3>"  + 
                 "<label for='fname'>change the target to:</label>" + 
                 "<input type='text' name='fname' id='updated_target'>" + 
-                '<button data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" id="change_target_button" onclick="change_target();">Change Target</button> '
+                '<button data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn" id="change_target_button" onclick="change_target();">Change Target</button> '  
+
+                    
+
+
+
                     );
 
 }
