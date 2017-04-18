@@ -89,9 +89,9 @@
 
     <div data-role="content" style="background: #eae9e9">
         <ul data-inset="true" data-role="listview" data-input="#filterBasic-input">
+            <li id="target"/>
             <li id="money"/>
             <li id="due_date"/>
-            <li id="target"/>
             <li><a href='#settings' data-transition='flow'>Settings</a></li>
 
         </ul>
@@ -110,6 +110,79 @@
         </div>
     </div>
 </div><!-- /page -->
+
+<div data-role="page" id="new_target">
+    <div data-role="header" data-position="fixed" style="background: #40adf2">
+        <h1>Smoking Target</h1>
+        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
+    </div><!-- /header -->
+
+
+    <div data-role="content" id="">
+        
+        <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php" id= "change_target_form">
+              <!--  <label for="fname">How many cigarettes per day do you currently smoke?</label>
+                <input type="number" name="fname" id="fname">
+                <label for="fname">What's your target for daily cigarette intake?</label>
+                <input type="number" name="fname" id="fname"> -->
+            </form>
+        </div>
+
+    </div>  
+
+
+    <div data-role="content" >    
+        
+        <div id="graph" style="width: 400px;height:400px;"></div>
+        <script type="text/javascript">
+            var graph = document.getElementById('graph');
+
+            s_history = [0,0,0,0,0,0,0]
+
+
+            if ((JSON.parse(localStorage.current_user).smoking_history).length != 0) {
+             for (i in JSON.parse(localStorage.current_user).smoking_history) {
+                 s_history[i] = JSON.parse(localStorage.current_user).smoking_history[i].count
+                 if (i >= 7) {
+                     break;
+                 }
+             }
+            };
+
+
+            var layout = {
+              title: 'Your Smoking History For The Past 7 Days',
+              xaxis: {
+                title: 'Past seven days',
+                titlefont: {
+                  family: 'Courier New, monospace',
+                  size: 18,
+                  color: '#7f7f7f'
+                }
+              },
+              yaxis: {
+                title: 'Numebr of cigarettes smoked',
+                titlefont: {
+                  family: 'Courier New, monospace',
+                  size: 18,
+                  color: '#7f7f7f'
+                }
+              }
+            };
+
+
+            Plotly.newPlot( graph, [{
+                x: [1, 2, 3, 4, 5, 6, 7],
+                y:  s_history}] , layout); 
+        </script>
+            
+    </div>  
+    <div id="smokes"></div>
+
+
+     
+</div>
 
 
 <div data-role="page" id="settings">
@@ -288,23 +361,6 @@
     </div>   
 </div>
 
-<div data-role="page" id="new_target">
-    <div data-role="header" data-position="fixed" style="background: #40adf2">
-        <h1>Smoking Target</h1>
-        <a href="#team" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
-    </div><!-- /header -->
-    <div data-role="content" id="">
-        
-        <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php" id= "change_target_form">
-              <!--  <label for="fname">How many cigarettes per day do you currently smoke?</label>
-                <input type="number" name="fname" id="fname">
-                <label for="fname">What's your target for daily cigarette intake?</label>
-                <input type="number" name="fname" id="fname"> -->
-            </form>
-        </div>
-    </div>   
-</div>
 
 <div data-role="page" id="due_date">
     <div data-role="header" data-position="fixed" style="background: #40adf2">
