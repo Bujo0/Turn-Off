@@ -20,6 +20,20 @@ h3 {
     outline: 0;
 }
 
+.svg-container {
+
+  -khtml-opacity:.7; 
+ -moz-opacity:.7; 
+ -ms-filter:”alpha(opacity=70)”;
+  filter:alpha(opacity=70);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.7);
+  opacity:.7; 
+}
+
+#smoke {
+	width: 90%;
+}
+
 .ui-btn-icon-left:after, .ui-btn-icon-right:after, 
 .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, 
 .ui-btn-icon-notext:after {

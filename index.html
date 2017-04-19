@@ -83,18 +83,21 @@
 <div data-role="page" id="landing">
     <div data-role="header" data-position="fixed"  style="background: #40adf2" >
         <a href="#home" class="ui-btn-left ui-corner-all" >Log Out</a>
-        <h1> Home </h1>
+        <h1 style="align:center"> Home </h1>
         <a href="#update_guardian" class="ui-btn-right ui-corner-all">Update</a>
     </div><!-- /header -->
 
     <div data-role="content">
         <ul data-inset="true" data-role="listview" data-input="#filterBasic-input">
-        <li>
-        <div id="graph" style="align:center; width: 400px;height:400px;"></div>
-        <script type="text/javascript">
+        <li style="background-color: #f6f6f6;">
+        <h3>cigarettes per day weekly basis<br></h3>
+        <div class="container" id="graph" style="display:block; width: 310px; height:310px;">
+            
+        </div>
+        <script type="text/javascript" >
             var graph = document.getElementById('graph');
 
-            s_history = [0,0,0,0,0,0,0]
+            s_history = [1,1,1,1,1,1,1]
 
 
             if ((JSON.parse(localStorage.current_user).smoking_history).length != 0) {
@@ -108,32 +111,23 @@
 
 
             var layout = {
-              title: 'Your Smoking History For The Past 7 Days',
-              xaxis: {
-                title: 'Past seven days',
-                titlefont: {
-                  family: 'Courier New, monospace',
-                  size: 18,
-                  color: '#7f7f7f'
-                }
-              },
-              yaxis: {
-                title: 'Numebr of cigarettes smoked',
-                titlefont: {
-                  family: 'Courier New, monospace',
-                  size: 18,
-                  color: '#7f7f7f'
-                }
+              margin:{
+                l:20,
+                r:20,
+                b:20,
+                t:0,
+                pad: 1
+
               }
             };
 
-
             Plotly.newPlot( graph, [{
-                x: [1, 2, 3, 4, 5, 6, 7],
-                y:  s_history
+                x: ["M", "T", "W", "T", "F", "S", "S"],
+                y:  s_history,
              }] , layout); 
+
         </script>
-    </li>
+    </li> 
         
             <li id="target"/>
             <li id="money"/>
@@ -156,17 +150,18 @@
     <div data-role="content" id="">
         
         <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php" id= "change_target_form">
+            <form method="post" action="/action_page_post.php" id= "change_target_form" >
               <!--  <label for="fname">How many cigarettes per day do you currently smoke?</label>
                 <input type="number" name="fname" id="fname">
                 <label for="fname">What's your target for daily cigarette intake?</label>
                 <input type="number" name="fname" id="fname"> -->
             </form>
         </div>
+        <div id="smokes"></div>
 
     </div>  
 
-    <div id="smokes"></div>
+   
 
 
      
