@@ -50,3 +50,7 @@ html body .ui-group-theme-a a:visited {
 ui-btn-left ui-corner-all:active {
 	background: red;
 }
+
+.ui-widget-header {
+  background-color: #40adf2;
+}
