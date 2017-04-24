@@ -22,7 +22,7 @@ function update_guardian() {
         localStorage.current_user = JSON.stringify(temp_user)
         
         show_guardian();
-        $.mobile.pageLoadErrorMessage = "";
+        //$.mobile.pageLoadErrorMessage = "";
         window.location.replace("index.html#landing")
 
     }
