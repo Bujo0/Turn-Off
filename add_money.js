@@ -83,19 +83,19 @@ function update_frozen() {
             // alert(frozen);
             show_money(frozen,daily);
             add_money_to_frozen(frozen);
-            $.mobile.pageLoadErrorMessage = "";
+            // $.mobile.pageLoadErrorMessage = " ";
             window.location.replace("index.html#landing")
 
         }
         else {
             alert("sorry but your input must be a number ");
-            $.mobile.pageLoadErrorMessage = "";
+            // $.mobile.pageLoadErrorMessage = " ";
             window.location.replace("index.html#add_money")
         }   
     }
     else {
         alert("your input is empty");
-        $.mobile.pageLoadErrorMessage = "";
+        // $.mobile.pageLoadErrorMessage = " ";
         window.location.replace("index.html#add_money")
 
     }
