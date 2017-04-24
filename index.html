@@ -137,7 +137,7 @@
             <li id="target"/>
             <li id="money"> <li/>
             <li id="due_date"/>
-            <li><a href='#settings' data-transition='flow'>Settings</a></li>
+            <li><a href='#settings' data-transition='flow'>Select Guardian/Charity</a></li>
             <li id="help2">Help</a></li>
         </ul>
 
@@ -178,7 +178,7 @@
 <div data-role="page" id="settings">
     <div data-role="header" data-position="fixed"  style="background: #40adf2" >
         <a href="#landing" data-rel="back" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all">Back</a>
-        <h1> Settings </h1>
+        <h1> Select Guardian/Charity </h1>
     </div><!-- /header -->
 
     <div data-role="content">
@@ -250,7 +250,7 @@
             <form method="post" action="/action_page_post.php" >
                 <label for="fname">Friend's Name</label>                
                 <input type="text" name="fname" id="guardian_name">
-                <label for="fname">Friend's Contact</label>
+                <label for="fname">Friend's Contact Number</label>
                 <input type="text" name="fname" id="guardian_contact">
                 <label for="date">Note</label>
                 <input type="text" name="fname" id="guadian_note">
@@ -312,6 +312,8 @@
     <div data-role="content">
         <h3>Each cigarette decreases your life by an average of 8 minutes. We are here to help you quit! </h3>
         <p>This application is designed to help you quit by socializing the quitting process. You freeze a set of funds and select a guardian who is then responsible for returning those funds on a daily basis until a quitting deadline. Every day before going to sleep, please send your guardian a status update (button on top right of home page). Your guardian will receive a text message with your update and an option as to whether or not to reward you by returning your daily reward. If he/she sees that you did not satisfy your target the funds will automatically be donated to a charity of your choice. We hope you enjoy and don't hesitate to contact us with more questions!</p>
+
+        <p>Were you wondering how we calculate the amount of money that is due each day? We use a simple formula to calculate money due daily - we take the total money still frozen and divide it by the quantity of days left up until you reach your cigarette smoking deadline date. Dividng money still frozen by days left until due date returns the money that is due on that day. Remember - if you smoke more than your target, the money gets donated!<p>
         <p> Filip Bujaroski: fbujaroski@college.harvard.edu </p> 
         <p> Yoav Shaked: yshaked@college.harvard.edu </p> 
         <p> Kally Wu: wwu1@gsd.harvard.edu </p> 

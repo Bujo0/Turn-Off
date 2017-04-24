@@ -15,9 +15,9 @@ function show_money() {
     frozen = Math.round(JSON.parse(localStorage.current_user).amount_frozen)
     money.empty().append(
                     "<a href='#add_money' data-transition='flow'>" +
-                    "<h3> Money Frozen:</h3> <p>$" + frozen + " </p>" +
-                    "<h3> Money Gained: </h3> <p>$" + daily + " </p>"  +
-                    "<h3> Money Lost: </h3> <p>$" + JSON.parse(localStorage.current_user).amount_lost + " </p>" 
+                    "<h3> Total Money Still Frozen:</h3> <p>$" + frozen + " </p>" +
+                    "<h3> Money Returned Daily: </h3> <p>$" + daily + " </p>"  +
+                    "<h3> Total Money Lost: </h3> <p>$" + JSON.parse(localStorage.current_user).amount_lost + " </p>" 
                     );
             
 }
@@ -122,7 +122,7 @@ function daily_check_in() {
             var entry = {count: parseFloat(today_count), date: Date(Date.now()), target: temp_user.smoking_target, money: daily}
             smoking_history.push(entry)
             temp_user.smoking_history = smoking_history
-            if(temp_user.smoking_target < today_count){
+            if(temp_user.smoking_target < parseFloat(today_count)){
                 temp_user.amount_frozen -= daily
                 temp_user.amount_lost += daily
             }
@@ -132,9 +132,16 @@ function daily_check_in() {
 
             localStorage.current_user = JSON.stringify(temp_user)
             show_target()
+            if (parseFloat(today_count) <= temp_user.smoking_target) {
 
-            alert_text = "You smoked " + today_count + " cigeratte(s) today. " + "A message of confirmation has been sent to " + JSON.parse(localStorage.current_user).guardian+ "."
-            alert(alert_text)
+                alert_text = "You reached your goal today. Good job! A message of confirmation has been sent to " + JSON.parse(localStorage.current_user).guardian+ ".";
+                alert(alert_text)
+            }
+            else {
+                alert_text = "You smoked more than your target cigeratte(s) today. " + "A message of confirmation has been sent to " + JSON.parse(localStorage.current_user).guardian+ ".";
+                alert(alert_text)
+            }
+            
 
             window.location.reload();
             window.location.replace("index.html#landing")
