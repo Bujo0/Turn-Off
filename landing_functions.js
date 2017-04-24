@@ -153,7 +153,7 @@ function validate() {
     if(users[user].username == username && users[user].password == pas){
       localStorage.current_user = JSON.stringify(users[user]);
       window.location = "index.html#landing"
-      window.location.reload()
+      //window.location.reload()
       return;
     }
   }
