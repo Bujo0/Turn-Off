@@ -54,7 +54,6 @@ function show_target() {
 	                        "<h3> Average smoked per day: </h3> <p>" + avg_smoked + " cigarettes</p>");
 
     }
-    console.log('station 2')
 }
 
 

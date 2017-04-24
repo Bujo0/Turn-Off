@@ -99,6 +99,9 @@ function update_frozen() {
         window.location.replace("index.html#add_money")
 
     }
+
+
+    show_money();
     
     
 }
@@ -228,7 +231,7 @@ $(document).ready(function () {
     // get references to variables
 
 
-    money = $("#money");
+    // money = $("#money");
 
     add_money_form = $("#add_money_form");
 
