@@ -54,7 +54,7 @@ function add_money_to_frozen(frozen) {
 
     add_money_form.empty().append("<label for='fname'>Current Frozen Balance</label>" + 
                 "<label for='fname'>" + '$ ' + JSON.parse(localStorage.current_user).amount_frozen + "</label>"  + 
-                "<label for='fname'>Add to Frozen Amount</label>" + 
+                "<label for='fname'>Add money</label>" + 
                 "<input type='text' name='fname' id='added_amount'>" + 
                 "<label for='fname'>Credit Card Number</label>" + 
                 "<input type='text' name='fname' id='credit_card_number'>" + 
@@ -62,7 +62,7 @@ function add_money_to_frozen(frozen) {
                 '<input type="date" name="date" id="date" value=""/> ' +
                 '<label for="fname">CSV</label>' + 
                 '<input type="text" name="fname" id="fname"> ' +
-                '<button class="ui-btn" onclick="update_frozen()">Add Money</button>'
+                '<button class="ui-btn" onclick="update_frozen()">Add</button>'
                     );
 
 }

@@ -87,6 +87,12 @@
     </div><!-- /header -->
 
     <div data-role="content">
+        <a href="#update_guardian" class="ui-btn">
+        Update
+        </a>
+        <button class="ui-btn"> 
+            Remind Guardian 
+        </button>
         <ul data-inset="true" data-role="listview" data-input="#filterBasic-input">
         <li style="background-color: #f6f6f6;">
         <h3>Cigarettes Per Day on a Weekly Basis<br></h3>
@@ -136,10 +142,7 @@
         </ul>
 
     </div><!-- /content -->
-    <div>
-        <a href="#update_guardian" class="ui-btn">Update</a>
-        <button class="ui-btn"> Remind Guardian </button>
-    </div>
+    
 
 
 </div><!-- /page -->
@@ -283,11 +286,11 @@
         
          <div data-role="main" class="ui-content" id="due_date_form">
             <form method="post" action="/action_page_post.php">
-                <label for="date">Habit End Date</label>
+                <label for="date">Quit Date</label>
                 <input type="date" name="date" id="extended_date" value="date" />   
                  <a href="#team" data-icon="ui-btn-icon-left ui-icon-back" class="ui-btn ui-corner-all" onclick="extend_due_date();">Confirm</a>    
             </form>
-            <p> Note: You can only extend your end date. Any changes you make are final. </p>
+            <p> Note: You can only extend your quit date. Any changes you make are final. </p>
         </div>
      </div>
 </div>
