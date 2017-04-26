@@ -50,7 +50,7 @@ function show_target() {
 	else{
 
 	    target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' data-transition='flow'>"+
-	                        "<h3> Target cigarettes:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
+	                        "<h3> Daily Cigarette Target:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
 	                        "<h3> Average smoked per day: </h3> <p>" + avg_smoked + " cigarettes</p>");
 
     }
