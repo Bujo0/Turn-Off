@@ -42,7 +42,7 @@ function show_target() {
 	if (isNaN(parseFloat(avg_smoked))) {
 
 		target.empty().append("<a href= '#new_target' onclick='show_change_target_form()' data-transition='flow'>"+
-                        "<h3> Target cigarettes:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
+                        "<h3> Daily Cigarette Target:</h3> <p>"+ JSON.parse(localStorage.current_user).smoking_target + " cigarettes</p>"+
                         "<h3> Average smoked per day: </h3> <p>0 cigarettes</p>");
 
 	}
