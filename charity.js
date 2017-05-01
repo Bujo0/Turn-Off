@@ -30,9 +30,8 @@ function update_charity() {
 function show_update_charity() {
 
     update_charity_form.empty().append('<form action="/action_page.php">' +
-    	'<h3>Charities:</h3>' +
         '<fieldset data-role="controlgroup">' +
-            '<legend>Select a Charity</legend>' +
+            '<legend><h3>Select a Charity</h3></legend>' +
               '<label for="RedCross">Red Cross</label>' + 
               '<input type="radio"  id="RedCross" value="Red Cross" name="charity">' + 
               '<label for="ALA">American Lung Associaton</label>' + 
